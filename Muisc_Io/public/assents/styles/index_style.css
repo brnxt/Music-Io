@@ -1,0 +1,224 @@
+* {
+
+    margin: 0%;
+    padding: 0%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.header {
+    display: flex;
+    margin: 0;
+    background-image: linear-gradient(to right, #00005c, #996ee3);
+    /*Cor em Destaque: #583ac6*/
+    width: 100%;
+    justify-content: space-between;
+    height: 80px;
+
+    position: fixed;
+}
+
+.titulo {
+
+    display: flex;
+    justify-content: flex-start;
+    font-size: 30px;
+    color: white;
+    font-weight: bold;
+    align-items: center;
+    padding-left: 60px;
+}
+
+.navbar {
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 40px;
+    justify-content: space-between;
+    gap: 50px;
+
+    
+
+}
+
+.navbar a {
+
+    color: white;
+
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.navbar a:hover {
+
+    transition: 0.5s;
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.navbar li {
+
+    list-style: none;
+
+}
+
+.botaoLogin {
+
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 30px;
+    width: 80px;
+
+    border: solid, 2px;
+    border-color: white;
+    border-radius: 10px;
+
+}
+
+
+
+/* Banner*/
+
+.banner {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+
+    background-image: url('../icons/images/performer-songwriter-singing-new-tracks-his-electro-acoustic-guitar.jpg');
+    background-size: cover;
+    background-position: center;
+
+    align-items: center;
+    justify-content: flex-start;
+
+}
+
+.fraseBanner {
+
+    color: rgba(255, 255, 255, 0.923);
+    font-size: 40px;
+    padding: 40%;
+
+}
+
+.fraseBanner span {
+
+    color: white;
+    font-weight: bolder;
+}
+
+.fraseBanner a {
+    display: flex;
+
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.81);
+
+    justify-content: flex-start;
+
+    margin-top: 10px;
+
+}
+
+/* conteudo*/
+
+.informations {
+
+    height: 200vh;
+    padding-left: 8%;
+    padding-right: 8%;
+    background-color: #f2f2f2d6;
+
+}
+
+.container1, .container2 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    
+}
+
+
+.container1{
+
+    padding-top: 30vh;
+}
+.container2{
+
+    padding-top: 20vh;
+}
+.box {
+
+
+    width: 450px;
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px rgb(220, 217, 217);
+
+}
+
+.container1 :hover {
+
+    transition: 0.5s;
+    width: 480px;
+    height: 430px;
+    
+}
+
+.container2 :hover {
+
+    transition: 0.5s;
+    width: 480px;
+    height: 430px;
+
+}
+
+.caixa1{
+    
+    display: flex;
+    justify-content: center;
+}
+
+.imagem1{
+
+    display: flex;
+    background-image: url('../icons/images/o_que_e_musica.webp');
+    background-size: cover;
+    width: 90%;
+    height: 50%;
+    justify-content: center;    
+    margin: 20px 5px 5px 5px;
+
+}
+
+.tituloBox{
+
+    display: flex;
+    align-items: flex-end;
+    height: 40vh;
+
+    color: black;
+}
+
+.footer {
+
+    height: 300px;
+    width: 100%;
+
+    background-color: #301b8f;
+    color: rgba(255, 255, 255, 0.607);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+    - Quiz
+    - Ditado Ritmico
+    - Adivinhe a nota
+*/
