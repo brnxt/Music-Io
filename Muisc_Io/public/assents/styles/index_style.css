@@ -8,13 +8,15 @@
 .header {
     display: flex;
     margin: 0;
-    background-image: linear-gradient(to right, #00005c, #996ee3);
+    background-image: linear-gradient(to left, #821daa, #041a88);
     /*Cor em Destaque: #583ac6*/
     width: 100%;
     justify-content: space-between;
     height: 80px;
 
     position: fixed;
+    z-index: 999;
+    /*define a ordem de profundidade dos elementos*/
 }
 
 .titulo {
@@ -37,7 +39,7 @@
     justify-content: space-between;
     gap: 50px;
 
-    
+
 
 }
 
@@ -133,76 +135,88 @@
 
 }
 
-.container1, .container2 {
+.container1,
+.container2 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    gap: 20px;
-    
+    gap: 40px;
+
 }
 
 
-.container1{
+.container1 {
 
     padding-top: 30vh;
 }
-.container2{
 
-    padding-top: 20vh;
+.container2 {
+
+    
+    padding-top: 50px;
 }
+
 .box {
 
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 450px;
     height: 400px;
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 5px 5px 2px rgb(220, 217, 217);
+    transition: all 0.5s ease-in-out;
+
+
 
 }
 
-.container1 :hover {
+.container1 .box:hover,
+.container2 .box:hover {
 
-    transition: 0.5s;
-    width: 480px;
-    height: 430px;
-    
-}
 
-.container2 :hover {
-
-    transition: 0.5s;
-    width: 480px;
-    height: 430px;
+    transform: scale(1.10);
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
 
 }
 
-.caixa1{
-    
+.caixa {
+
     display: flex;
     justify-content: center;
 }
 
-.imagem1{
+.imagem{
 
     display: flex;
-    background-image: url('../icons/images/o_que_e_musica.webp');
     background-size: cover;
-    width: 90%;
-    height: 50%;
-    justify-content: center;    
-    margin: 20px 5px 5px 5px;
+    width: 95%;
+    min-height: 70%;
+    justify-content: center;
+    margin: 0px 5px 5px 5px;
+    
 
 }
 
-.tituloBox{
+.imagem img {
+    width: 95%;
+    height: 90%;
+    object-fit: cover;
+    border-radius: 5px;
+    }
 
+
+.conteudo-box {
     display: flex;
-    align-items: flex-end;
-    height: 40vh;
-
-    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    
+    padding-bottom: 20px;
 }
+
 
 .footer {
 
