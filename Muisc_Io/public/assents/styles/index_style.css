@@ -50,13 +50,14 @@
 
     text-decoration: none;
     font-size: 20px;
+    transition: all 0.2s ease-in-out;
 }
 
 .navbar a:hover {
 
-    transition: 0.5s;
+
     font-weight: bold;
-    font-size: 22px;
+    scale: (1.10);
 }
 
 .navbar li {
@@ -84,7 +85,7 @@
 
 
 
-/* Banner*/
+/* ====== Banner ====== */
 
 .banner {
     display: flex;
@@ -110,7 +111,6 @@
     color: rgba(255, 255, 255, 0.923);
 
     font-size: 44px;
-
 }
 
 .fraseBanner span {
@@ -125,29 +125,29 @@
     color: rgba(255, 255, 255, 0.81);
     padding: 0 20px;
     text-align: start;
-
-
-
-
 }
 
-.espacamento{
+.espacamento {
 
     height: 50px;
     background-color: white;
 }
 
-/*Introdução*/
 
+/* ====== Introdução e Surgimento ====== */
+
+
+.container-surgimento,
 .container-introducao {
 
     display: flex;
 
-    height: 800px;
+    min-height: 85vh;
     width: 100%;
 
 }
 
+.surgimento,
 .introducao {
     display: flex;
     flex-direction: column;
@@ -155,14 +155,15 @@
     width: 50%;
     height: 70%;
     margin: 60px;
-    
-    align-items: center;
-    
 
+    align-items: center;
+
+    order: 2;
 }
 
+.surgimento-titulo,
 .introducao-titulo {
-    
+
     display: block;
     width: 100%;
 
@@ -171,40 +172,47 @@
 
     color: #000000e3;
 
+    text-align: center;
 }
 
+.surgimento-texto,
 .introducao-texto {
 
     display: block;
 
     height: 40%;
     width: 100%;
-    
+
     flex-direction: column;
-    
+
 }
 
 
+.surgimento p,
 .introducao p {
-    
-    font-size: 25px;
+
+    font-size: 26px;
     color: #000000e3;
 
-    margin-bottom: 30px;
+    margin-bottom: 40px;
+    text-indent: 40px;
+    /* text-indent: Espaçamento para o começo do parágrafo  */
 }
 
-.imgIntrod{
-    
+.imgSurg,
+.imgIntrod {
+
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
     width: 50%;
     height: 70%;
 }
 
-.imgIntrod img{
-    
+.imgSurg img,
+.imgIntrod img {
+
     background-position: center;
     background-size: cover;
     align-items: center;
@@ -213,13 +221,28 @@
 
     height: 90%;
     width: 80%;
-    
+
+}
+
+.imgSurg {
+
+    order: 1;
+}
+
+.introducao {
+
+    order: 1;
+}
+
+.imgIntrod {
+
+    order: 2;
 }
 
 
 
 
-/* conteudo*/
+/* ====== conteudo ====== */
 
 .informations {
 
@@ -241,9 +264,20 @@
 }
 
 
-.container1 {
+.texto-informations {
 
-    padding-top: 30vh;
+
+    height: 260px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.texto-informations h1 {
+
+    font-size: 46px;
 }
 
 .container2 {
@@ -257,8 +291,10 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
     width: 450px;
     height: 400px;
+
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 5px 5px 2px rgb(220, 217, 217);
@@ -286,10 +322,13 @@
 
     display: flex;
     background-size: cover;
+
     width: 95%;
     min-height: 70%;
-    justify-content: center;
     margin: 0px 5px 5px 5px;
+
+    justify-content: center;
+    align-items: center;
 
 }
 
@@ -312,7 +351,7 @@
 
 
 
-/*Footer*/
+/* ====== Footer ====== */
 
 .footer {
 
