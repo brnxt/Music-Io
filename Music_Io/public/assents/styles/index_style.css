@@ -10,7 +10,7 @@
 .header {
     display: flex;
     margin: 0;
-    background-image: linear-gradient(to left, #6b118f, #000e56);
+    background-image: linear-gradient(to left, #6b118f, #011471);
     /*Cor em Destaque: #583ac6*/
     width: 100%;
     justify-content: space-between;
@@ -25,10 +25,12 @@
 
     display: flex;
     justify-content: flex-start;
-    font-size: 30px;
+    align-items: center;
+    
     color: white;
     font-weight: bold;
-    align-items: center;
+    font-size: 30px;
+    
     padding-left: 60px;
 }
 
@@ -37,8 +39,9 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-right: 40px;
     justify-content: space-between;
+    
+    padding-right: 40px;
     gap: 50px;
 
 
@@ -48,8 +51,8 @@
 
     color: white;
 
-    text-decoration: none;
     font-size: 20px;
+    text-decoration: none;
     transition: all 0.2s ease-in-out;
 }
 
@@ -89,6 +92,9 @@
 
 .banner {
     display: flex;
+    justify-content: center;
+    align-items: center;
+
     width: 100%;
     height: 100vh;
 
@@ -96,8 +102,6 @@
     background-size: cover;
     background-position: center;
 
-    align-items: center;
-    justify-content: center;
 
 }
 
@@ -106,6 +110,7 @@
     max-width: 800px;
     /*Define limite de largura*/
     width: fit-content;
+    /*Ajusta a largura para o tamanho exato do conteúdo*/
 
     text-align: start;
     color: rgba(255, 255, 255, 0.923);
@@ -142,22 +147,22 @@
 
     display: flex;
 
-    min-height: 85vh;
+    min-height: 80vh;
     width: 100%;
 
 }
 
 .surgimento,
 .introducao {
+    
     display: flex;
     flex-direction: column;
+    align-items: center;
 
     width: 50%;
     height: 70%;
     margin: 60px;
-
-    align-items: center;
-
+    
     order: 2;
 }
 
@@ -165,14 +170,14 @@
 .introducao-titulo {
 
     display: block;
+    text-align: center;
     width: 100%;
 
-    font-size: 28px;
+    font-size: 26px;
     margin-bottom: 65px;
 
     color: #000000e3;
 
-    text-align: center;
 }
 
 .surgimento-texto,
@@ -191,7 +196,7 @@
 .surgimento p,
 .introducao p {
 
-    font-size: 26px;
+    font-size: 24px;
     color: #000000e3;
 
     margin-bottom: 40px;
@@ -206,22 +211,26 @@
     justify-content: center;
     align-items: center;
 
+    flex-direction: column;
+
     width: 50%;
-    height: 70%;
+    height: 100%;
 }
 
 .imgSurg img,
 .imgIntrod img {
 
-    background-position: center;
-    background-size: cover;
+    display: flex;
     align-items: center;
-
-    border-radius: 10px;
+    
 
     height: 90%;
     width: 80%;
 
+    background-position: center;
+    background-size: cover;
+
+    border-radius: 10px;
 }
 
 .imgSurg {
@@ -246,12 +255,11 @@
 
 .informations {
 
-    height: 140vh;
+    height: 170vh;
+    
     padding-left: 8%;
     padding-right: 8%;
     background-color: #f2f2f2d6;
-
-
 }
 
 .container1,
@@ -259,6 +267,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
     gap: 40px;
 
 }
@@ -266,12 +275,11 @@
 
 .texto-informations {
 
-
-    height: 260px;
-
     display: flex;
     justify-content: center;
     align-items: center;
+
+    height: 260px;
 
 }
 
@@ -298,6 +306,7 @@
     background-color: rgb(255, 255, 255);
     border-radius: 10px;
     box-shadow: 5px 5px 2px rgb(220, 217, 217);
+    
     transition: all 0.5s ease-in-out;
 
 
@@ -334,7 +343,7 @@
 
 .imagem img {
     width: 95%;
-    height: 90%;
+    height: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
