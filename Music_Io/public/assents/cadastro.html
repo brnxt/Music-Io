@@ -77,7 +77,19 @@
 </html>
 <script>
 
-  let listaEmpresasCadastradas = [];
+
+  let listaDominio = [
+    "@gmail.com", "@outlook.com",
+    "@hotmail.com", "@live.com",
+    "@yahoo.com", "@yahoo.com.br",
+    "@icloud.com", "@me.com"
+  ]
+
+  let listaCaracEspeciais = [
+    "@", "#", "$", "%", "&", "*", "!",
+    "?", ".", ",", "-", "_", "+", "=",
+    "/", "|", "(", ")", "[", "]", "{",
+    "}", `'`, `"`, '`', "+", "-", "="]
 
   function cadastrar() {
     // aguardar();
@@ -89,6 +101,35 @@
     var senhaVar = input_senha.value;
     var confirmacaoSenhaVar = input_confirmarSenha.value;
 
+    let temDominio = true;
+    let temCaracEspecial = true;
+
+    // Verificando se no email há algum domínio sendo utilizado
+    for (let i = 0; i <= listaDominio.length; i++) {
+      if (emailVar.includes(listaDominio[i])) {
+
+        temDominio = true;
+        break
+      }
+      else {
+
+        temDominio = false;
+      }
+    }
+    
+    // Verificando se na senha tem no mínimo um caractere especial
+    for (let i = 0; i <= listaCaracEspeciais.length; i++) {
+      if (senhaVar.includes(listaCaracEspeciais[i])) {
+
+        temCaracEspecial = true;
+        break
+      }
+      else {
+
+        temCaracEspecial = false;
+      }
+    }
+
 
     // Verificando se há algum campo em branco
     if (
@@ -98,46 +139,50 @@
       confirmacaoSenhaVar == ""
 
     ) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Mensagem de erro para todos os campos em branco)";
+      alert("Erro! Preencha todos os campos corretamente");
 
       finalizarAguardar();
       return false;
     }
 
-    else if (!(nomeVar.length > 1)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Nome Inválido! Preencha o campo corretamente)";
+    else if (!(nomeVar.length > 2)) {
+      alert("Nome Inválido! Preencha o campo corretamente");
 
       finalizarAguardar();
       return false;
     }
 
     else if (!(emailVar.includes('@') && emailVar.includes('.'))) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Email Inválido! Preencha o campo corretamente)";
+      alert("Email Inválido! Preencha o campo corretamente");
 
       finalizarAguardar();
       return false;
     }
-    else if (!(senhaVar.length > 6)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Senha Inválida! Preencha o campo corretamente)";
+    else if (!(senhaVar.length >= 6)) {
+      alert("Senha Inválida! Preencha o campo corretamente");
 
       finalizarAguardar();
       return false;
     }
     else if (!(confirmacaoSenhaVar == senhaVar)) {
-      cardErro.style.display = "block";
-      mensagem_erro.innerHTML =
-        "(Senha Inválida! Preencha o campo corretamente)";
+      alert("Senha Inválida! Preencha o campo corretamente");
 
       finalizarAguardar();
       return false;
+    }
+    else if (temDominio == false) {
+      alert("Email Inválido! Insira o domínio do email corretamente");
+
+      finalizarAguardar();
+      return false;
+
+    }
+    else if (temCaracEspecial == false) {
+      alert("Senha Inválida! A senha deve conter no mínimo um caractere Especial");
+
+      finalizarAguardar();
+      return false;
+
     }
     else {
       setInterval(sumirMensagem, 5000);
@@ -161,9 +206,8 @@
         console.log("resposta: ", resposta);
 
         if (resposta.ok) {
-          cardErro.style.display = "block";
 
-          alert ("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
+          alert("Cadastro realizado com sucesso! Redirecionando para tela de Login...");
 
           setTimeout(() => {
             window.location = "login.html";
