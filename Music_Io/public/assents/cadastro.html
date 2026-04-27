@@ -9,7 +9,7 @@
   <script src="../assents/js/sessao.js"></script>
   <script src="../assents/js/alerta.js"></script>
 
-  <link rel="stylesheet" href="/assents/styles/login_style.css" />
+  <link rel="stylesheet" href="../assents/styles/login_style.css" />
   <link rel="icon" href="assets/icons" />
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link rel="stylesheet" href="">
@@ -82,7 +82,8 @@
     "@gmail.com", "@outlook.com",
     "@hotmail.com", "@live.com",
     "@yahoo.com", "@yahoo.com.br",
-    "@icloud.com", "@me.com"
+    "@icloud.com", "@me.com",
+    "@sptech.school"
   ]
 
   let listaCaracEspeciais = [
@@ -103,9 +104,13 @@
 
     let temDominio = true;
     let temCaracEspecial = true;
+    let temLetra = true;
+
+    let senhaVarMinuscula = senhaVar.toLowerCase();
+    let senhaVarMaiuscula = senhaVar.toUpperCase();
 
     // Verificando se no email há algum domínio sendo utilizado
-    for (let i = 0; i <= listaDominio.length; i++) {
+    for (let i = 0; i < listaDominio.length; i++) {
       if (emailVar.includes(listaDominio[i])) {
 
         temDominio = true;
@@ -116,7 +121,7 @@
         temDominio = false;
       }
     }
-    
+
     // Verificando se na senha tem no mínimo um caractere especial
     for (let i = 0; i <= listaCaracEspeciais.length; i++) {
       if (senhaVar.includes(listaCaracEspeciais[i])) {
@@ -127,6 +132,22 @@
       else {
 
         temCaracEspecial = false;
+      }
+    }
+    
+    // Verificando se na senha tem no mínimo uma letra
+    for (let i = 0; i <= senhaVar.length; i++) {
+      
+      let caractere = senhaVar[i];
+      
+      if ((caractere >= "A" && caractere <= "Z" || caractere >= "a" && caractere <= "z")) {
+
+        temLetra = true;
+        break
+      }
+      else {
+
+        temLetra = false;
       }
     }
 
@@ -146,7 +167,7 @@
     }
 
     else if (!(nomeVar.length > 2)) {
-      alert("Nome Inválido! Preencha o campo corretamente");
+      alert("Nome Inválido! Insira o nome corretamente");
 
       finalizarAguardar();
       return false;
@@ -159,7 +180,7 @@
       return false;
     }
     else if (!(senhaVar.length >= 6)) {
-      alert("Senha Inválida! Preencha o campo corretamente");
+      alert("Senha Inválida! A senha deve conter no mínimo 6 caracteres");
 
       finalizarAguardar();
       return false;
@@ -183,6 +204,25 @@
       finalizarAguardar();
       return false;
 
+    } 
+    else if (temLetra == false) {
+      alert("Senha Inválida! A senha deve conter no mínimo uma letra");
+
+      finalizarAguardar();
+      return false;
+
+    } 
+    else if (senhaVar == senhaMinuscula) {
+      alert("Senha Inválida! A senha precisa de ao menos uma letra maiúscula!");
+      
+      finalizarAguardar();
+      return false;
+    }
+    else if (senhaVar == senhaMaiuscula) {
+      alert("Senha Inválida! A senha precisa de ao menos uma letra minúscula!");
+      
+      finalizarAguardar();
+      return false;
     }
     else {
       setInterval(sumirMensagem, 5000);
