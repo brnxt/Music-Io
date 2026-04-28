@@ -18,12 +18,15 @@
 <body>
 
     <div class="imagem-card">
+        <div class="voltar-home">
+            <a href="index.html"><-Voltar</a>
+        </div>
         <div class="titulo-card">
             <h1>Bem-vindo</h1>
         </div>
         <div class="container-card">
             <div class="card">
-                <p>Sinta a vibração, entenda o ritmo. Sua jornada para dominar a música começa aqui.</p>
+                <p>Sinta a vibração, entenda o ritmo. <br>Sua jornada para dominar a música começa aqui.</p>
             </div>
         </div>
     </div>
@@ -70,7 +73,7 @@
 
 </html>
 <script>
-    
+
     function entrar() {
         console.log("A FUNÇÃO ENTRAR COMEÇOU!");
         //aguardar();
@@ -79,8 +82,13 @@
         var senhaVar = senha_input.value;
 
         if (emailVar == "" || senhaVar == "") {
-            
-            alert( "Erro! Preencha todos os campos corretamente");
+
+            alert("Erro! Preencha todos os campos corretamente");
+            //finalizarAguardar();
+            return false;
+        } else if (!(emailVar.includes('@') && emailVar.includes('.'))) {
+
+            alert("Email Inválido! Preencha o campo corretamente");
             //finalizarAguardar();
             return false;
         }
@@ -122,8 +130,8 @@
                 });
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
+                alert("Email e/ou senha inválidos!")
+                console.log("Email e/ou senha inválidos!");
 
                 resposta.text().then(texto => {
                     console.error(texto);

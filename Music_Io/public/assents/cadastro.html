@@ -110,6 +110,9 @@
     let senhaVarMaiuscula = senhaVar.toUpperCase();
 
     // Verificando se no email há algum domínio sendo utilizado
+
+
+
     for (let i = 0; i < listaDominio.length; i++) {
       if (emailVar.includes(listaDominio[i])) {
 
@@ -134,12 +137,12 @@
         temCaracEspecial = false;
       }
     }
-    
+
     // Verificando se na senha tem no mínimo uma letra
     for (let i = 0; i <= senhaVar.length; i++) {
-      
+
       let caractere = senhaVar[i];
-      
+
       if ((caractere >= "A" && caractere <= "Z" || caractere >= "a" && caractere <= "z")) {
 
         temLetra = true;
@@ -204,23 +207,23 @@
       finalizarAguardar();
       return false;
 
-    } 
+    }
     else if (temLetra == false) {
       alert("Senha Inválida! A senha deve conter no mínimo uma letra");
 
       finalizarAguardar();
       return false;
 
-    } 
-    else if (senhaVar == senhaMinuscula) {
+    }
+    else if (senhaVar == senhaVarMinuscula) {
       alert("Senha Inválida! A senha precisa de ao menos uma letra maiúscula!");
-      
+
       finalizarAguardar();
       return false;
     }
-    else if (senhaVar == senhaMaiuscula) {
+    else if (senhaVar == senhaVaruMaiuscula) {
       alert("Senha Inválida! A senha precisa de ao menos uma letra minúscula!");
-      
+
       finalizarAguardar();
       return false;
     }
