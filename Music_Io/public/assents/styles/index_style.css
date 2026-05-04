@@ -88,7 +88,10 @@
 
 }
 
+.texto-serifado{
 
+    font-family: "Times New Roman", Times, serif;
+}
 
 
 /* ====== Banner ====== */
@@ -292,6 +295,13 @@
     gap: 40px;
 
 }
+.container1 a,
+.container2 a{
+    
+    text-decoration: none;
+    color: black;
+
+}
 
 
 .texto-informations {
@@ -395,7 +405,7 @@
 
 .footer {
 
-    height: 100px;
+    height: 80px;
     width: 100%;
 
     background-color: #301b8f;
@@ -404,6 +414,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+
+    
 }
 
 /*

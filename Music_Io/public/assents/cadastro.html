@@ -92,6 +92,8 @@
     "/", "|", "(", ")", "[", "]", "{",
     "}", `'`, `"`, '`', "+", "-", "="]
 
+  let listaNumeros = [ "0", "1","2","3","4","5","6","7","8","9",]
+
   function cadastrar() {
     // aguardar();
 
@@ -105,6 +107,7 @@
     let temDominio = true;
     let temCaracEspecial = true;
     let temLetra = true;
+    let temNumero = true;
 
     let senhaVarMinuscula = senhaVar.toLowerCase();
     let senhaVarMaiuscula = senhaVar.toUpperCase();
@@ -126,7 +129,7 @@
     }
 
     // Verificando se na senha tem no mínimo um caractere especial
-    for (let i = 0; i <= listaCaracEspeciais.length; i++) {
+    for (let i = 0; i < listaCaracEspeciais.length; i++) {
       if (senhaVar.includes(listaCaracEspeciais[i])) {
 
         temCaracEspecial = true;
@@ -139,7 +142,7 @@
     }
 
     // Verificando se na senha tem no mínimo uma letra
-    for (let i = 0; i <= senhaVar.length; i++) {
+    for (let i = 0; i < senhaVar.length; i++) {
 
       let caractere = senhaVar[i];
 
@@ -151,6 +154,16 @@
       else {
 
         temLetra = false;
+      }
+    }
+
+    // Verificando se o nome possui algum número
+    for(let i = 0; i < listaNumeros.length; i++){
+
+      if(nomeVar.includes(listaNumeros[i])){
+
+        temNumero = false;
+        break
       }
     }
 
@@ -196,6 +209,12 @@
     }
     else if (temDominio == false) {
       alert("Email Inválido! Insira o domínio do email corretamente");
+
+      finalizarAguardar();
+      return false;
+    } 
+    else if (temNumero == false) {
+      alert("Nome Inválido! O seu nome não deve conter números");
 
       finalizarAguardar();
       return false;

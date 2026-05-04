@@ -84,17 +84,17 @@
                 <p>Total que questoes acertadas por matéria:</p>
             </div>
             <div class="listas">
-            <div class="lista-questoes1">
-                Matéria 1:
-                Matéria 2:
-                Matéria 3:
+                <div class="lista-questoes1">
+                    Matéria 1:
+                    Matéria 2:
+                    Matéria 3:
+                </div>
+                <div class="lista-questoes2">
+                    Matéria 4:
+                    Matéria 5:
+                    Matéria 6:
+                </div>
             </div>
-            <div class="lista-questoes2">
-                Matéria 4:
-                Matéria 5:
-                Matéria 6:
-            </div>
-        </div>
         </div>
 
 </body>
@@ -103,17 +103,19 @@
 <script>
     const listaDeQuestoes = [
 
+        /* ====== Máteria: O que torna o som, a música? ======*/
+
         {
-            pergunta: "Qual mês tem 30 dias?",
+            pergunta: "O que é a música?",
             alternativaA: "Janeiro",
-            alternativaB: "Dezembro",
-            alternativaC: "Junho",
-            alternativaD: "Agosto",
+            alternativaB: "Música são vários barulhos",
+            alternativaC: `Música é a combinação de ritmo, harmonia e melodia.`,
+            alternativaD: "",
             alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Quantas horas tem em um dia?",
+            pergunta: "Como o som é produzido?",
             alternativaA: "30 horas",
             alternativaB: "38 horas",
             alternativaC: "48 horas",
@@ -122,13 +124,157 @@
         },
 
         {
-            pergunta: "Qual destes números é ímpar?",
+            pergunta: "Quais são as três principais características do som?",
             alternativaA: "Dez",
             alternativaB: "Doze",
             alternativaC: "Oito",
             alternativaD: "Onze",
             alternativaCorreta: "alternativaD"
+        },
+
+        /* ====== Máteria: Os pilares da música ======*/
+
+        {
+            pergunta: "Quais são os três pilares da música ?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "Ritmo,Melodia e Harmônia",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Quantas notas no mínimo precisa ter para fazer um acorde ?", /* ====== Harmonia ====== */
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Qual o nome do maior ponto ou intensidade da música ?", /* ====== Melodia ====== */
+            alternativaA: "30 horas",
+            alternativaB: "Climáx",
+            alternativaC: "48 horas",
+            alternativaD: "",
+            alternativaCorreta: "alternativaB"
+        },
+
+        /* ====== Máteria: Máquinas de som ======*/
+
+        {
+            pergunta: `Qual instrumento é denominado "Instrumento de Sopro de Madeira" ?`,
+            alternativaA: "Oboé",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaA"
+        },
+
+        {
+            pergunta: `Qual instrumento é denominado "Instrumento de Cordas Friccionadas" ?`,
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "Rabeca",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: `Tambor, chocalho e tamborim pertencem a que tipo de instrumento?`,
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        /* ====== Máteria: Linha do tempo ======*/
+
+        {
+            pergunta: "Qual era a finalidade da música nos anos A.C ?",
+            alternativaA: "30 horas",
+            alternativaB: " Era utilizada em rituais das antigas culturas ",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaB"
+        },
+
+        {
+            pergunta: `Em qual período aprensentava modo jônico (modo "maior") e modo eólio (modo "menor") ?`,
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Pitágoras foi responsável por estabelecer relações entre a matemática e a música",
+            alternativaA: "Verdadeiro",
+            alternativaB: "Falso",
+            alternativaCorreta: "alternativaA"
+        },
+
+        /* ====== Máteria: Mente e ritmo ======*/
+
+        {
+            pergunta: "Como o som é produzido?",    /* Benefícios da música */
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Como o som é produzido?", /* Como o cérebro reage a música */
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Como o som é produzido?",   
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        /* ====== Máteria: A orquestra ====== */
+
+        {
+            pergunta: "Como o som é produzido?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Como o som é produzido?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
+        },
+
+        {
+            pergunta: "Como o som é produzido?",
+            alternativaA: "30 horas",
+            alternativaB: "38 horas",
+            alternativaC: "48 horas",
+            alternativaD: "24 horas",
+            alternativaCorreta: "alternativaD"
         }
+
 
     ]
 

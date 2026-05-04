@@ -19,64 +19,109 @@
     height: 100vh;
 }
 
-.o-que-e {
-    
-    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/o_que_e_musica.webp') ;
-    /*Usando o linear gradiente para criar uma "máscara" na imagem*/
-    background-size: cover;
-    background-position: center;
-
-}
-
-.fraseBanner-info{
+.fraseBanner-info {
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
     color: white;
+
 }
 
-.fraseBanner-info h1{
+.fraseBanner-info h1 {
 
     font-size: 50px;
     padding-bottom: 10px;
 }
 
-.fraseBanner-info p{
+.fraseBanner-info p {
 
     font-size: 26px;
     text-align: center;
+}
+
+/* ====== Imagens Banner ====== */
+
+.o-que-e {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/o_que_e_musica.webp');
+    /*Usando o linear gradiente para criar uma "máscara" na imagem*/
+    background-size: cover;
+    background-position: center;
+
+}
+
+.os-pilares {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/trumpet-sheet-music-near-drink-notepad.jpg');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.maquinas-de-som {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/visao-aproximada-de-instrumentos-musicais-em-fundo-de-madeira_392895-257550.avif');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.linha-do-tempo {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/a-evolucao-da-musica-pela-historia-20221007143620.jpg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.mente-e-ritmo {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/interface-digital-do-cerebro-processamento-cognitivo-feedback-e-transmissao-de-neurofeedback-uma-cabeca-humana-g_981101-117310.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.a-orquestra {
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url('../icons/images/orquestra.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /*====== CONTEUDO ======*/
 
 
 .fundo-conteudo {
-    
+
     display: flex;
     justify-content: center;
-    align-items: center;
 
-    height: 400vh;
+
+    min-height: 100vh;
     width: 100%;
 
     background-color: #f2f2f2;
-    
+
+
+
 }
 
-.conteudo{
+.conteudo {
 
-    height: 90%;
+    min-height: 90%;
     width: 80%;
 
     border-radius: 64px;
     background-color: white;
 
     padding: 60px;
+
+    margin: 120px 0;
+
 }
 
-.titulo-conteudo{
+.titulo-conteudo {
     display: flex;
     align-items: center;
     padding-left: 10px;
@@ -85,38 +130,53 @@
     height: 50px;
 }
 
-.conteudo h2  {
+.conteudo h2 {
 
-    font-size: 30px;
-    padding: 20px;
+    font-size: 32px;
+    padding: 10px;
+    padding-top: 40px;
 }
 
-.conteudo h1{
+.conteudo h3 {
+
+    font-size: 22px;
+    padding: 10px;
+}
+
+.conteudo h1 {
 
     font-size: 60px;
+    padding-left: 20px;
 }
 
 .conteudo p {
 
-    padding: 20px;
+    padding: 10px;
     padding-right: 80px;
-    
+
     font-size: 25px;
 
     text-align: justify;
 }
 
-.teste{
+.teste {
 
     padding-right: 0px;
 }
 
-.texto-conteudo{
+.texto-conteudo {
 
     padding: 30px;
+    padding-left: 0px;
 }
 
-.imagem img{
+.texto-conteudo span {
+
+    color: rgb(27, 27, 27);
+    font-weight: bolder;
+}
+
+.imagem-conteudo img {
 
     display: flex;
     justify-content: flex-end;
@@ -125,6 +185,78 @@
     height: 550px;
     width: 80%;
 
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 50px;
+    padding: 10px;
+}
+
+.imagem-conteudo-linha img {
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    height: 550px;
+    width: 80%;
+
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 10px;
+}
+
+.imagem-perfil {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 400px;
+    width: 50%;
+
+    margin-top: 30px;
+    margin-bottom: 50px;
+    padding: 10px 40px;
+}
+
+.imagem-perfil h3{
+    
+    width: 70%;
+    margin-left: 20px;
+    
+
+    font-size: 16px;
+}
+
+.imagem-perfil span{
+
+    color: rgb(86, 86, 86);
+}
+
+
+
+
+
+/* ====== Listas ====== */
+
+.lista {
+
+    font-size: 25px;
+
+    padding-left: 70px;
+    margin-top: 30px;
+}
+
+.lista li {
+
+    margin-bottom: 20px;
+    padding-right: 80px;
+
+    text-align: justify;
+}
+
+.lista span {
+
+    color: rgb(90, 89, 89);
+    font-weight: bolder;
 }
