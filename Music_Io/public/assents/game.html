@@ -49,11 +49,11 @@
         <div id="jogo" class="jogo-quiz">
 
             <div class="pergunta">
-                Questão <span id="spanNumeroDaQuestaoAtual"></span>:
-                <span id="spanQuestaoExibida" class="text-bold"></span>
+                <a class="questao">Questão <span id="spanNumeroDaQuestaoAtual"></span>:</a>
+                <span id="spanQuestaoExibida" class="questaoExibida"></span>
             </div>
 
-            <div id="opcoes" class="flex-colunar padding-8 alterinativas">
+            <div id="opcoes" class="opcoes">
                 <span>
                     <input type="radio" id="primeiraOpcao" name="option" class="radio" value="alternativaA" />
                     <label for="primeiraOpcao" class="option" id="labelOpcaoUm"></label>
@@ -72,7 +72,7 @@
                 </span>
             </div>
 
-            <div id="botoes" class="flex-colunar padding-8">
+            <div id="botoes" class="botoes">
                 <button onclick="submeter()" id="btnSubmeter">Submeter resposta</button>
                 <button onclick="avancar()" id="btnProx" disabled>Avançar para próxima questão</button>
             </div>
@@ -81,19 +81,12 @@
         <div id="resultado" class="resultado-quiz">
             <div class="resultado-titulo">
                 <h1>Resultado!</h1>
-                <p>Total que questoes acertadas por matéria:</p>
+                <p>Total que questoes acertadas:
+                <div id="id_exibirTotalQuestoes"></div></p>
             </div>
             <div class="listas">
-                <div class="lista-questoes1">
-                    Matéria 1:
-                    Matéria 2:
-                    Matéria 3:
-                </div>
-                <div class="lista-questoes2">
-                    Matéria 4:
-                    Matéria 5:
-                    Matéria 6:
-                </div>
+                <div class="lista-questoes1"></div>
+                <div class="lista-questoes2"></div>
             </div>
         </div>
 
@@ -117,10 +110,10 @@
         {
             pergunta: "Como o som é produzido?",
             alternativaA: "30 horas",
-            alternativaB: "38 horas",
+            alternativaB: "A partir de uma fonte de vibração",
             alternativaC: "48 horas",
             alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            alternativaCorreta: "alternativaB"
         },
 
         {
@@ -128,7 +121,7 @@
             alternativaA: "Dez",
             alternativaB: "Doze",
             alternativaC: "Oito",
-            alternativaD: "Onze",
+            alternativaD: "Altura, Timbre e Intensidade",
             alternativaCorreta: "alternativaD"
         },
 
@@ -144,16 +137,16 @@
         },
 
         {
-            pergunta: "Quantas notas no mínimo precisa ter para fazer um acorde ?", /* ====== Harmonia ====== */
-            alternativaA: "30 horas",
+            pergunta: "Quantas notas no mínimo precisa ter para fazer um acorde ?",
+            alternativaA: "3 notas",
             alternativaB: "38 horas",
             alternativaC: "48 horas",
             alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            alternativaCorreta: "alternativaA"
         },
 
         {
-            pergunta: "Qual o nome do maior ponto ou intensidade da música ?", /* ====== Melodia ====== */
+            pergunta: "Qual o nome do maior ponto ou intensidade da música ?",
             alternativaA: "30 horas",
             alternativaB: "Climáx",
             alternativaC: "48 horas",
@@ -183,11 +176,11 @@
 
         {
             pergunta: `Tambor, chocalho e tamborim pertencem a que tipo de instrumento?`,
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            alternativaA: "Percussão de Altura Definida",
+            alternativaB: "Metais",
+            alternativaC: "Percussão de Altura Indefinida",
+            alternativaD: "Cordas",
+            alternativaCorreta: "alternativaC"
         },
 
         /* ====== Máteria: Linha do tempo ======*/
@@ -206,7 +199,7 @@
             alternativaA: "30 horas",
             alternativaB: "38 horas",
             alternativaC: "48 horas",
-            alternativaD: "24 horas",
+            alternativaD: "Período Barroco",
             alternativaCorreta: "alternativaD"
         },
 
@@ -220,30 +213,28 @@
         /* ====== Máteria: Mente e ritmo ======*/
 
         {
-            pergunta: "Como o som é produzido?",    /* Benefícios da música */
+            pergunta: "Qual benefício a música gera para a saúde?",
             alternativaA: "30 horas",
             alternativaB: "38 horas",
-            alternativaC: "48 horas",
+            alternativaC: "Estímulo a criatividade",
             alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            alternativaCorreta: "alternativaC"
         },
 
         {
-            pergunta: "Como o som é produzido?", /* Como o cérebro reage a música */
+            pergunta: "Como o som é produzido?",
             alternativaA: "30 horas",
             alternativaB: "38 horas",
             alternativaC: "48 horas",
             alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            alternativaCorreta: "alternativaA"
         },
 
         {
-            pergunta: "Como o som é produzido?",   
-            alternativaA: "30 horas",
-            alternativaB: "38 horas",
-            alternativaC: "48 horas",
-            alternativaD: "24 horas",
-            alternativaCorreta: "alternativaD"
+            pergunta: `"... A música é uma forma de aproximar as pessoas e promover a criação de novas relações."`,
+            alternativaA: "Verdadeiro",
+            alternativaB: "Falso",
+            alternativaCorreta: "alternativaA"
         },
 
         /* ====== Máteria: A orquestra ====== */
@@ -278,14 +269,14 @@
 
     ]
 
+    let listaAcertosMateria = [];
+
     // variáveis globais    
     let numeroDaQuestaoAtual = 0
     let pontuacaoFinal = 0
-    let tentativaIncorreta = 0
-    let certas = 0
-    let erradas = 0
+    let erradas = 0;
     let quantidadeDeQuestoes = listaDeQuestoes.length
-    // let isUltima = numeroDaQuestaoAtual == quantidadeDeQuestoes-1 ? true : false
+
 
     function onloadEsconder() {
         document.getElementById('jogo').style.display = `none`
@@ -378,15 +369,17 @@
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
+
+                let materiaID = Math.floor(numeroDaQuestaoAtual / 3) + 1;
+                listaAcertosMateria.push(materiaID);
+
                 pontuacaoFinal++
-                certas++
                 numeroDaQuestaoAtual++
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
                 const wrongLabelId = option.labels[0].id
 
                 document.getElementById(wrongLabelId).classList.add("text-danger-with-bg")
                 document.getElementById(alternativaCorreta).classList.add("text-success-with-bg")
-                tentativaIncorreta++
                 erradas++
                 numeroDaQuestaoAtual++
             }
@@ -413,16 +406,47 @@
         document.getElementById('jogo').style.display = `none`
         document.getElementById('resultado').style.display = `flex`
 
+        let m1 = 0; 
+        let m2 = 0; 
+        let m3 = 0; 
+        let m4 = 0; 
+        let m5 = 0; 
+        let m6 = 0; 
+        
+        for(let i = 0; i < listaAcertosMateria.length; i++ ){
 
+            let materiaAtual =listaAcertosMateria[i]
 
-        textoParaMensagemFinal += "<br> Você acertou " + Math.round((porcentagemFinalDeAcertos) * 100) + "% das questões."
+            if (materiaAtual == 1){
 
+                m1++
+            }else if (materiaAtual == 2){
 
-        document.getElementById('msgFinal').innerHTML = textoParaMensagemFinal
-        document.getElementById('msgFinal').classList.add(classComCoresParaMensagemFinal)
-        document.getElementById('spanPontuacaoFinal').innerHTML = pontuacaoFinal
+                m2++
+            }else if (materiaAtual == 3){
 
-        document.getElementById('jogo').classList.add("text-new-gray")
+                m3++
+            }else if (materiaAtual == 4){
+
+                m4++
+            }else if (materiaAtual == 5){
+
+                m5++
+            }else if (materiaAtual == 6){
+
+                m6++
+            }
+        }
+
+        document.getElementById("id_exibirTotalQuestoes").innerHTML = `${pontuacaoFinal} /18 `
+
+        
+
+        document.querySelector('.lista-questoes1').innerHTML = `Matéria 1: ${m1}/3 acertos<br>Matéria 2: ${m2}/3 acertos<br>Matéria 3: ${m3}/3 acertos`
+        document.querySelector('.lista-questoes2').innerHTML = `Matéria 4: ${m4}/3 acertos<br>Matéria 5: ${m5}/3 acertos<br>Matéria 6: ${m6}/3 acertos`
+        // document.querySelector = consegue pegar tags de CSS no "documento"
+       
+
         btnProx.disabled = true
         btnSubmeter.disabled = true
         // btnConcluir.disabled = true
