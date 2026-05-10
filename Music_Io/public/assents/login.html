@@ -19,7 +19,7 @@
 
     <div class="imagem-card">
         <div class="voltar-home">
-            <a href="index.html"><-Voltar</a>
+            <a href="index.html"><-Voltar< /a>
         </div>
         <div class="titulo-card">
             <h1>Bem-vindo</h1>
@@ -115,18 +115,14 @@
                 console.log(resposta);
 
                 resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.ID_USUARIO = json.idUsuario;
                     sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    //sessionStorage.AQUARIOS = JSON.stringify(json.aquarios)
+                    sessionStorage.EMAIL_USUARIO = json.email;
 
                     setTimeout(function () {
-                        alert("Login realizado com sucesso!")
+                        alert("Login realizado com sucesso!");
                         window.location.href = "./game.html";
-                    }, 1000); // apenas para exibir o loading
-
+                    }, 1000);
                 });
 
             } else {
