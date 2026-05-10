@@ -72,6 +72,41 @@
 
 }
 
+.navbar span{
+
+    font-weight: bolder;
+    
+    
+}
+
+.navbar select{
+
+    color: rgb(255, 255, 255);
+
+    font-size: 20px;
+    text-decoration: none;
+    background: transparent;
+    border: none
+}
+
+.navbar option{
+
+    color: black;
+    background: none;
+}
+
+.nomeUsuario{
+
+    display: none;
+}
+
+.navbar button{
+
+    background: none;
+    color: white;
+    border: none
+}
+
 .botaoLogin {
 
     padding: 0;
@@ -424,3 +459,4 @@
     - Ditado Ritmico
     - Adivinhe a nota
 */
+

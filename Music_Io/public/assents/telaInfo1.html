@@ -15,7 +15,7 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body onload="verificarLogin()">
 
     <!-- ================== Header ================== -->
 
@@ -26,13 +26,27 @@
                 <a href="../assents/index.html">Home</a>
             </li>
             <li>
-                <a href="">Jogos</a>
+                <select name="" id="">
+                    <option value="">Conteúdos</option>
+                    <option value="">A</option>
+                    <option value="">B</option>
+                    <option value="">C</option>
+                    <option value="">D</option>
+                    <option value="">E</option>
+                    <option value="">F</option>
+                </select>
             </li>
             <li>
-                <a href="">Contato</a>
+                <a id="navbar-quiz" href="../assents/game.html">Quiz</a>
+            </li>
+            <li>
+                <a id="navbar-dashboard" href="">Dashboard</a>
             </li>
             <li class="botaoLogin">
                 <a href="../assents/login.html">Login</a>
+            </li>
+            <li class="nomeUsuario">
+                <a><span id="usuario"></span></a>
             </li>
         </ul>
     </div>
@@ -189,3 +203,23 @@
 </body>
 
 </html>
+<script>
+
+    function verificarLogin() {
+
+        if (sessionStorage.ID_USUARIO == null) {
+
+            document.querySelector('.nomeUsuario').style.display = `none`
+            document.querySelector('.botaoLogin').style.display = `flex`
+
+            
+        }
+        else {
+            
+            document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO
+            document.querySelector('.nomeUsuario').style.display = `flex`
+            document.querySelector('.botaoLogin').style.display = `none`
+        }
+    }
+
+</script>

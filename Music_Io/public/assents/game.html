@@ -27,18 +27,30 @@
                 <a href="../assents/index.html">Home</a>
             </li>
             <li>
-                <a href="">Jogos</a>
-                </a>
+                <select name="" id="">
+                    <option value="">Conteúdos</option>
+                    <option value="">A</option>
+                    <option value="">B</option>
+                    <option value="">C</option>
+                    <option value="">D</option>
+                    <option value="">E</option>
+                    <option value="">F</option>
+                </select>
             </li>
             <li>
-                <a href="">Contato</a>
+                <a id="navbar-quiz" href="../game.html">Quiz</a>
             </li>
-            <li class="botaoLogin">
-                <a href="../assents/login.html">Login</a>
+            <li>
+                <a id="navbar-dashboard" href="">Dashboard</a>
+            </li>
+            <li>
+                 <a><span id="usuario"></span></a>
             </li>
         </ul>
     </div>
 
+    
+   
     <div class="banner-quiz">
         <div id="texto" class="titulo-quiz">
             <h1>Hora do Quiz!</h1>
@@ -263,11 +275,11 @@
     let pontuacaoTotal = 0
     let erradas = 0;
     let quantidadeDeQuestoes = listaDeQuestoes.length
-
-
+    
     function onloadEsconder() {
         document.getElementById('jogo').style.display = `none`
         document.getElementById('resultado').style.display = `none`
+        document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO;
     }
 
     function iniciarQuiz() {
@@ -454,12 +466,14 @@
         })
 
             .then(function (resposta) {
-                alert("Deu certo!")
+                console.log("Deu certo!")
             })
 
             .catch(function (resposta) {
-                alert("Não deu certo!");
+                
                 console.log(erro);
             })
     }
+
+    
 </script>
