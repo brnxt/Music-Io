@@ -136,9 +136,63 @@ function listarKpi1(req, res) {
         })
 }
 
+function listarKpi2(req, res) {
+
+    var ids2 = req.params.idUsuario;
+
+    dashboardModel.listarKpi2(ids2)
+
+        .then(function (resultadoKpi2) {
+
+
+            if (resultadoKpi2.length > 0) {
+
+                res.status(200).json(resultadoKpi2)
+            }
+            else {
+
+                res.status(204).send("Nenhum resultado")
+            }
+        })
+
+        .catch(function (erro) {
+
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
+
+
+function listarKpi3(req, res) {
+
+    var ids3 = req.params.idUsuario;
+
+    dashboardModel.listarKpi3(ids3)
+
+        .then(function (resultadoKpi3) {
+
+
+            if (resultadoKpi3.length > 0) {
+
+                res.status(200).json(resultadoKpi3)
+            }
+            else {
+
+                res.status(204).send("Nenhum resultado")
+            }
+        })
+
+        .catch(function (erro) {
+
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
 module.exports = {
     obterDados,
     listar,
     listarUltimos5,
-    listarKpi1
+    listarKpi1,
+    listarKpi2,
+    listarKpi3
 }

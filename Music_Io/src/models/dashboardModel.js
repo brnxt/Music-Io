@@ -33,7 +33,7 @@ function plotarGraficoBarra(idUsuario) {
     return database.executar(instrucaoSql)
 }
 
-function listarKpi1(ids){
+function listarKpi1(ids) {
 
     var instrucaoSql2 = `
         SELECT posicao_atual FROM (
@@ -48,8 +48,40 @@ function listarKpi1(ids){
     return database.executar(instrucaoSql2)
 }
 
+function listarKpi3(ids3) {
+
+    var instrucaoSql3 = `
+    SELECT
+    SUM(p.m1) AS m1,
+    SUM(p.m2) AS m2,
+    SUM(p.m3) AS m3,
+    SUM(p.m4) AS m4,
+    SUM(p.m5) AS m5,
+	SUM(p.m6) AS m6
+    FROM pontuacaoMateriasQuiz AS p 
+    JOIN quiz AS q ON p.fkQuizTentativa = q.idQuizTentativa
+    JOIN usuario AS u ON q.fkUsuario = u.idUsuario
+    WHERE q.fkUsuario = ${ids3}
+    GROUP BY q.fkUsuario;
+    `
+    return database.executar(instrucaoSql3)
+}
+
+function listarKpi2(ids2) {
+
+    var instrucaoSql4 = `
+    SELECT ROUND((SUM(p.m1) + SUM(p.m2) + SUM(p.m3) + SUM(p.m4) + SUM(p.m5) + SUM(p.m6)) / COUNT(q.fkUsuario),2) AS media_geral
+    FROM pontuacaoMateriasQuiz AS p
+    JOIN quiz AS q ON p.fkQuizTentativa = q.idQuizTentativa
+    WHERE q.fkUsuario = ${ids2};	
+    `
+    return database.executar(instrucaoSql4)
+}
+
 module.exports = {
     plotarGraficoBarra,
     plotarGraficoLinha,
-    listarKpi1
+    listarKpi1,
+    listarKpi2,
+    listarKpi3
 };

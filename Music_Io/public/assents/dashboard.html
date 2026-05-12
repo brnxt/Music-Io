@@ -38,7 +38,7 @@
             <div class="kpi-container">
                 <div class="kpi">
 
-                    <h3>Ranking Atual</h3>
+                    <h3>Ranking Atual da Tabela:</h3>
 
                     <p><span id="kpi1"></span> Posição</p>
 
@@ -46,16 +46,16 @@
 
                 <div class="kpi">
 
-                    <h3>Blablabla</h3>
+                    <h3>Média Geral de Acertos <br> por Tentativa:</h3>
 
-                    <p>blabla</p>
+                    <p><span id="kpi2"></span> Acertos</p>
                 </div>
 
                 <div class="kpi">
 
-                    <h3>Matéria Crítica</h3>
+                    <h3>Matéria Crítica: <br><span id="materia-critica"></span></h3>
 
-                    <p>Blablabla</p>
+                    <p>Total de acertos: <span id="kpi3"></span></p>
 
                 </div>
             </div>
@@ -184,9 +184,74 @@
             })
 
 
+        /* ================ Segunda KPI: Média geral por tentativa ================ */
+
+
+        fetch(`/dashboard/listarKpi2/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+        })
+
+            .then(function (respostaKpi2) {
+
+                if (respostaKpi2.ok) {
+
+                    return respostaKpi2.json();
+                }
+            })
+
+            .then(function (kpi2) {
+
+                console.log("Dados kpi2 : ", JSON.stringify(kpi2))
+
+                listarKpi2(kpi2)
+            })
+
+            .catch(function (erro) {
+                console.error(`Erro no fetch: ${erro.message}`);
+            })
+
+
+
+
+
+
+
+        /* ================ Terceira KPI: Matéria Crítica ================ */
+
+        fetch(`/dashboard/listarKpi3/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+        })
+
+            .then(function (respostaKpi3) {
+
+                if (respostaKpi3.ok) {
+
+                    return respostaKpi3.json();
+                }
+            })
+
+            .then(function (kpi3) {
+
+                console.log("Dados kpi3 : ", JSON.stringify(kpi3))
+
+                listarKpi3(kpi3)
+            })
+
+            .catch(function (erro) {
+                console.error(`Erro no fetch: ${erro.message}`);
+            })
+
+
 
     }
-
 
 
 
@@ -249,7 +314,7 @@
 
 
         var listaDadosJson = [];
-        var listaMaterias = ['Teoria', 'Pilares', 'Instrumentos', 'História', 'Mente e ritmo', 'Orquestra']
+        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
 
         for (let i = 1; i <= 6; i++) {
 
@@ -287,11 +352,53 @@
         });
     }
 
+
+
+
     function listarKpi1(kpi1) {
 
-        console.log(`teste`, kpi1)
+
         document.getElementById("kpi1").innerHTML = kpi1[0].posicao_atual
     }
+    
+    
+    
+    function listarKpi3(kpi3) {
 
+        console.log(`testeaaa`, kpi3)
+
+        var listaPontuacaoSum = [];
+        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
+
+
+        for (let i = 0; i < 6; i++) {
+
+            listaPontuacaoSum.push(Number(kpi3[0]["m" + (i + 1)]))
+        }
+
+        var menorPontuacao = listaPontuacaoSum[0];
+        var indiceMateria = listaMaterias[0];
+
+        for (let i = 0; i < listaPontuacaoSum.length; i++) {
+
+            if (menorPontuacao > listaPontuacaoSum[i]) {
+
+                menorPontuacao = listaPontuacaoSum[i]
+
+                indiceMateria = listaMaterias[i]
+            }
+
+        }
+
+        document.getElementById("kpi3").innerHTML = menorPontuacao
+        document.getElementById("materia-critica").innerHTML = indiceMateria
+
+    }
+
+    function listarKpi2(kpi2) {
+    
+    
+        document.getElementById("kpi2").innerHTML = kpi2[0].media_geral;
+    }
 
 </script>
