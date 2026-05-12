@@ -36,10 +36,10 @@
                 </select>
             </li>
             <li>
-                <a id="navbar-quiz" href="../assents/game.html">Quiz</a>
+                <button onclick="verificarLoginQuiz()"><a id="navbar-quiz">Quiz</a></button>
             </li>
             <li>
-                <a id="navbar-dashboard" href="">Dashboard</a>
+                <a onclick="verificarLoginDashboard()" id="navbar-dashboard">Dashboard</a>
             </li>
             <li class="botaoLogin">
                 <a href="../assents/login.html">Login</a>
@@ -316,6 +316,30 @@
             document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO
             document.querySelector('.nomeUsuario').style.display = `flex`
             document.querySelector('.botaoLogin').style.display = `none`
+        }
+    }
+
+    function verificarLoginQuiz(){
+        if(sessionStorage.ID_USUARIO == null){
+
+            alert("Faça login para entrar no quiz")
+            window.location.href = './login.html'
+        }
+        else{
+
+            window.location.href = './game.html'
+        }
+    }
+    
+    function verificarLoginDashboard(){
+        if(sessionStorage.ID_USUARIO == null){
+
+            alert("Faça login para entrar na dashboard")
+            window.location.href = './login.html'
+        }
+        else{
+
+            window.location.href = './dashboard.html'
         }
     }
 
