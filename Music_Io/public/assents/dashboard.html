@@ -15,18 +15,18 @@
 
     <div class="sidebar">
         <div class="sidebar-container">
-            <div class="icone">Teste</div>
-            <p><span id="usuario">Mas</span></p>
+            <div class="icone"><img src="../assents/icons/usuario.png" alt=""></div>
+            <p>Olá, <span id="usuario"></span></p>
 
             <ul class="sidebar-lista">
                 <li>
-                    <a href="">Home</a>
+                    <a href="../assents/index.html">Home</a>
                 </li>
                 <li>
-                    <a href="">Quiz</a>
+                    <a href="../assents/game.html">Quiz</a>
                 </li>
                 <li>
-                    <a href="">Descubra Mais</a>
+                    <a href="../assents/index.html#descubra-mais">Descubra Mais</a>
                 </li>
             </ul>
         </div>
@@ -48,7 +48,7 @@
 
                     <h3>Média Geral de Acertos <br> por Tentativa:</h3>
 
-                    <p><span id="kpi2"></span> Acertos</p>
+                    <p><span id="kpi2"></span> Questões Corretas</p>
                 </div>
 
                 <div class="kpi">
@@ -257,24 +257,20 @@
 
 
     /* ================ Função para plotar o gráfico de linha ================ */
+    
+    
     function plotarGraficoLinha(jsonLinha) {
 
+        let dadosPontuacao = [0, 0, 0, 0, 0]
+        let dadosData = ["-", "-", "-", "-", "-"]
 
 
-        let dadosPontuacao = []
-        let dadosData = []
+        for (let i = 0; i < jsonLinha.length; i++) {
 
-
-        for (let i = 0; i <= 4; i++) {
-
-            dadosPontuacao.push(jsonLinha[i].pontuacao_total)
-            dadosData.push(jsonLinha[i].dtHora)
+            dadosPontuacao[i] = Number(jsonLinha[i].pontuacao_total)
+            dadosData[i] = (jsonLinha[i].dtHora)
 
         }
-
-
-
-
 
         // Capturando o elemento canvas pelo id 
         var ctx = document.getElementById('grafico-linha').getContext('2d');

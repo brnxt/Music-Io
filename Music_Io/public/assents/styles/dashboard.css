@@ -34,11 +34,22 @@
 
 .icone {
 
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-end;
+    align-items: center;
     height: 45%;
 
-    background-color: blue;
+    margin-bottom: 20px;
 }
 
+
+.icone img{
+
+    height: 150px;
+    width: 150px;
+}
 .sidebar-container p {
 
     height: 18px;
