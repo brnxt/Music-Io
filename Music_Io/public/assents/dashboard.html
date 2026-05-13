@@ -40,7 +40,7 @@
 
                     <h3>Ranking Atual da Tabela:</h3>
 
-                    <p><span id="kpi1"></span> Posição</p>
+                    <p><span id="kpi1"></span>º Posição</p>
 
                 </div>
 
@@ -65,23 +65,15 @@
                     <canvas id="grafico-linha"></canvas>
                 </div>
 
-                <div class="tabela-ranking">
-                    <h3>Tabela Ranking</h3>
-                    <div id="rank">1</div>
-                    <div id="rank">2</div>
-                    <div id="rank">3</div>
-                    <div id="rank">4</div>
-                    <div id="rank">5</div>
-                    <div id="rank">6</div>
-                    <div id="rank">7</div>
-                    <div id="rank">8</div>
-                    <div id="rank">9</div>
-                    <div id="rank">10</div>
-                </div>
-
                 <div class="grafico-bars">
                     <canvas id="grafico-barras"></canvas>
                 </div>
+
+                <div class="tabela-ranking">
+                    <h3>Tabela Ranking</h3>
+                    <div class="linha-ranking" id="div_exibir"></div>
+                </div>
+
             </div>
 
         </div>
@@ -174,7 +166,6 @@
 
             .then(function (kpi1) {
 
-                console.log("Dados kpi1 : ", JSON.stringify(kpi1))
 
                 listarKpi1(kpi1)
             })
@@ -204,8 +195,6 @@
             })
 
             .then(function (kpi2) {
-
-                console.log("Dados kpi2 : ", JSON.stringify(kpi2))
 
                 listarKpi2(kpi2)
             })
@@ -240,7 +229,7 @@
 
             .then(function (kpi3) {
 
-                console.log("Dados kpi3 : ", JSON.stringify(kpi3))
+
 
                 listarKpi3(kpi3)
             })
@@ -250,6 +239,35 @@
             })
 
 
+        /* ================ Tabela Ranking ================ */
+
+        fetch(`/dashboard/listarTabela/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+        })
+
+            .then(function (respostaTabela) {
+
+                if (respostaTabela.ok) {
+
+                    return respostaTabela.json();
+                }
+            })
+
+            .then(function (tabela) {
+
+                console.log("Dados Tabela : ", JSON.stringify(tabela))
+
+                listarTabela(tabela)
+            })
+
+            .catch(function (erro) {
+                console.error(`Erro no fetch: ${erro.message}`);
+            })
+
 
     }
 
@@ -257,8 +275,8 @@
 
 
     /* ================ Função para plotar o gráfico de linha ================ */
-    
-    
+
+
     function plotarGraficoLinha(jsonLinha) {
 
         let dadosPontuacao = [0, 0, 0, 0, 0]
@@ -293,16 +311,22 @@
                 }]
             },
             options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
                 scales: {
                     x: { ticks: { color: 'white' } },
-                    y: { ticks: { color: 'white' } }
+                    y: { ticks: { color: 'white' } },
                 }
             }
         });
+
+
     }
-
-
-
 
 
     /* ================ Função para plotar o gráfico de barra ================ */
@@ -340,12 +364,21 @@
                 }]
             },
             options: {
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
                 scales: {
                     x: { ticks: { color: 'white' } },
-                    y: { ticks: { color: 'white' } }
+                    y: { ticks: { color: 'white' } },
                 }
             }
         });
+
+
     }
 
 
@@ -356,12 +389,10 @@
 
         document.getElementById("kpi1").innerHTML = kpi1[0].posicao_atual
     }
-    
-    
-    
-    function listarKpi3(kpi3) {
 
-        console.log(`testeaaa`, kpi3)
+
+
+    function listarKpi3(kpi3) {
 
         var listaPontuacaoSum = [];
         var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
@@ -392,9 +423,29 @@
     }
 
     function listarKpi2(kpi2) {
-    
-    
+
+
         document.getElementById("kpi2").innerHTML = kpi2[0].media_geral;
+    }
+
+    function listarTabela(tab) {
+
+        let listaNomes = []
+        let listaPontos = []
+
+        for (let i = 0; i < tab.length; i++) {
+
+            listaNomes.push(tab[i].Nome)
+            listaPontos.push(tab[i].pontuacao_total)
+        }
+
+        for (let i = 0; i < listaNomes.length; i++) {
+
+            div_exibir.innerHTML += `
+            ${i + 1}º - ${listaNomes[i]}: ${listaPontos[i]} pts <br>
+            
+            `
+        }
     }
 
 </script>

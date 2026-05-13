@@ -29,6 +29,10 @@ router.get("/listarKpi2/:idUsuario", function (req, res) {
     dashboardController.listarKpi2(req, res)
 })
 
+router.get("/listarTabela/:idUsuario", function (req, res) {
+    dashboardController.listarTabela(req, res)
+})
+
 
 
 module.exports = router;

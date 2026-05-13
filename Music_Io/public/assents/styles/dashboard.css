@@ -22,6 +22,7 @@
     height: 100vh;
 
     background-color: white;
+    color: rgb(0, 0, 0);
 
     order: 1;
 }
@@ -65,7 +66,7 @@
 
     height: 30%;
     width: 100%;
-
+    
     gap: 20px;
 
 }
@@ -93,7 +94,7 @@
     width: 85%;
     height: 100vh;
 
-    background-image: linear-gradient(to right, #011471, #6b118f);
+    background-color: #011471 ;/*linear-gradient(to right, #011471, #6b118f);*/
 
     order: 2;
 }
@@ -107,9 +108,10 @@
 .kpi-container {
 
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
 
+    gap: 100px;
 
     height: 30%;
     width: 100%;
@@ -131,8 +133,8 @@
 
 .kpi {
 
-    height: 180px;
-    width: 280px;
+    height: 140px;
+    width: 240px;
 
     margin-top: 40px;
 
@@ -144,12 +146,12 @@
 
 .kpi h3{
 
-    margin-top: 20px;
+    margin-top: 18px;
 }
 
 .kpi p {
 
-    margin-top: 50px;
+    margin-top: 10px;
 }
 
 .grafico-line {
@@ -157,8 +159,8 @@
     display: flex;
     align-items: center;
 
-    height: 500px;
-    width: 480px;
+    height: 480px;
+    width: 460px;
 }
 
 .grafico-bars {
@@ -166,16 +168,21 @@
     display: flex;
     align-items: center;
 
-    height: 500px;
-    width: 480px;
+    height: 480px;
+    width: 460px;
 }
 
 .tabela-ranking {
 
-    height: 360px;
-    width: 300px;
+    display: flex;
+    flex-direction: column;
+
+    height: 340px;
+    width: 220px;
+    padding: 30px;
 
     background-color: white;
+    box-shadow: 2px 2px 4px;
     border-radius: 10px;
 }
 
@@ -189,7 +196,9 @@
 
 .tabela-ranking div{
 
-    text-align: center;
+    text-align: start;
 
-    font-size: 20px;
+    font-size: 16px;
+
+    padding-left: 10px;
 }

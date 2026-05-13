@@ -4,7 +4,7 @@ function plotarGraficoLinha(id) {
 
     var instrucaoSql1 = `
         SELECT 
-        DATE_FORMAT(dtHora, '%d/%m/%Y %H:%i:%s') AS dtHora,
+        DATE_FORMAT(dtHora, '%d/%m %H:%i') AS dtHora,
         pontuacao_total 
         FROM quiz WHERE fkUsuario = ${id} ORDER BY dtHora DESC LIMIT 5;
     `
@@ -78,10 +78,24 @@ function listarKpi2(ids2) {
     return database.executar(instrucaoSql4)
 }
 
+function listarTabela(tab) {
+
+    var instrucaoSql5 = `
+    SELECT u.nome AS Nome,
+	MAX(q.pontuacao_total) AS pontuacao_total
+    FROM usuario AS u
+    JOIN quiz AS q ON u.idUsuario = q.fkUsuario
+    GROUP BY u.nome
+    ORDER BY pontuacao_total DESC;	
+    `
+    return database.executar(instrucaoSql5)
+}
+
 module.exports = {
     plotarGraficoBarra,
     plotarGraficoLinha,
     listarKpi1,
     listarKpi2,
-    listarKpi3
+    listarKpi3,
+    listarTabela
 };

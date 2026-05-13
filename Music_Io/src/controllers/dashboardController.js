@@ -186,7 +186,33 @@ function listarKpi3(req, res) {
 
             res.status(500).json(erro.sqlMessage);
         })
-}
+    }
+
+
+    function listarTabela(req, res) {
+
+        var tab = req.params.idUsuario;
+
+        dashboardModel.listarTabela(tab)
+
+            .then(function (resultadoTabela) {
+
+
+                if (resultadoTabela.length > 0) {
+
+                    res.status(200).json(resultadoTabela)
+                }
+                else {
+
+                    res.status(204).send("Nenhum resultado")
+                }
+            })
+
+            .catch(function (erro) {
+
+                res.status(500).json(erro.sqlMessage);
+            })
+    }
 
 module.exports = {
     obterDados,
@@ -194,5 +220,6 @@ module.exports = {
     listarUltimos5,
     listarKpi1,
     listarKpi2,
-    listarKpi3
+    listarKpi3,
+    listarTabela
 }
