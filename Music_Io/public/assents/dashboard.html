@@ -49,33 +49,40 @@
                     <h3>Média Geral de Acertos <br> por Tentativa:</h3>
 
                     <p><span id="kpi2"></span> Questões Corretas</p>
+
+                    <p class="text-kpi">Total tentativas: <span id="total-tentativas"></span></p>
                 </div>
 
                 <div class="kpi">
 
-                    <h3>Matéria Crítica: <br><span id="materia-critica"></span></h3>
+                    <h3>Matéria Crítica: <br><span class="materia-critica" id="materia-critica"></span></h3>
 
                     <p>Total de acertos: <span id="kpi3"></span></p>
 
                 </div>
             </div>
 
-            <div class="grafico-container">
-                <div class="grafico-line">
-                    <canvas id="grafico-linha"></canvas>
+            <div class="grafico-meio">
+                <div class="grafico-container">
+
+                    <div class="grafico-line">
+                        <canvas id="grafico-linha"></canvas>
+                    </div>
+
+                    <div class="grafico-bars">
+                        <canvas id="grafico-barras"></canvas>
+                    </div>
                 </div>
 
-                <div class="grafico-bars">
-                    <canvas id="grafico-barras"></canvas>
-                </div>
+                <div class="grafico-container-2">
+                    <div class="tabela-ranking">
+                        <h3>Tabela Ranking</h3>
+                        <div class="linha-ranking" id="div_exibir"></div>
+                    </div>
 
-                <div class="tabela-ranking">
-                    <h3>Tabela Ranking</h3>
-                    <div class="linha-ranking" id="div_exibir"></div>
                 </div>
 
             </div>
-
         </div>
     </div>
 
@@ -294,23 +301,19 @@
         var ctx = document.getElementById('grafico-linha').getContext('2d');
         // Criando o gráfico de linha usando o Chart.js
         var myChart = new Chart(ctx, {
-            type: 'line', // Tipo de gráfico: linha
-            data: { // Dados para o gráfico
-                labels: dadosData, // Rótulos no eixo X
+            type: 'line',
+            data: {
+                labels: dadosData,
                 datasets: [{
-                    label: 'Histórico 5 Últimas tentativas', // Nome do conjunto de dados
-                    data: dadosPontuacao, // Dados dos votos
-                    backgroundColor: [
-                        '#38b6ff', // Cor de fundo das linhas
-                    ],
-                    borderColor: [
-                        '#38b6ff', // Cor da borda das linhas
-                    ],
-                    borderWidth: 1,// Largura da borda das linhas
+                    label: 'Histórico 5 Últimas tentativas',
+                    data: dadosPontuacao,
+                    borderWidth: 1,
                     tension: 0.3
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         labels: {
@@ -319,8 +322,14 @@
                     }
                 },
                 scales: {
-                    x: { ticks: { color: 'white' } },
-                    y: { ticks: { color: 'white' } },
+                    x: {
+                        ticks: { color: '#7a9ad4' },
+                        grid: { display: false },
+                    },
+                    y: {
+                        ticks: { color: '#7a9ad4' },
+                        grid: { display: false },
+                    },
                 }
             }
         });
@@ -353,17 +362,13 @@
                 datasets: [{
                     label: 'Pontuação da Última tentativa por matéria',
                     data: listaDadosJson,
-                    backgroundColor: [
-                        '#38b6ff',
-                    ],
-                    borderColor: [
-                        '#38b6ff',
-                    ],
                     borderWidth: 1
 
                 }]
             },
             options: {
+                responsive: true,
+                maintainAspectRatio: false,
                 plugins: {
                     legend: {
                         labels: {
@@ -372,8 +377,14 @@
                     }
                 },
                 scales: {
-                    x: { ticks: { color: 'white' } },
-                    y: { ticks: { color: 'white' } },
+                    x: {
+                        ticks: { color: '#7a9ad4' },
+                        grid: { display: false },
+                    },
+                    y: {
+                        ticks: { color: '#7a9ad4' },
+                        grid: { display: false },
+                    },
                 }
             }
         });
@@ -424,8 +435,17 @@
 
     function listarKpi2(kpi2) {
 
+        let mediaGeral = 0;
+        let qtdTentativas = 0;
 
-        document.getElementById("kpi2").innerHTML = kpi2[0].media_geral;
+        for(let i = 0; i < kpi2.length; i++){
+
+            mediaGeral = kpi2[i].media_geral
+            qtdTentativas = kpi2[0].qtd_tentativas
+        }
+
+        document.getElementById("kpi2").innerHTML = mediaGeral;
+        document.getElementById("total-tentativas").innerHTML = qtdTentativas;
     }
 
     function listarTabela(tab) {

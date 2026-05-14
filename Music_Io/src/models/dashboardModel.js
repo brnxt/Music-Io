@@ -70,7 +70,8 @@ function listarKpi3(ids3) {
 function listarKpi2(ids2) {
 
     var instrucaoSql4 = `
-    SELECT ROUND((SUM(p.m1) + SUM(p.m2) + SUM(p.m3) + SUM(p.m4) + SUM(p.m5) + SUM(p.m6)) / COUNT(q.fkUsuario),2) AS media_geral
+    SELECT ROUND((SUM(p.m1) + SUM(p.m2) + SUM(p.m3) + SUM(p.m4) + SUM(p.m5) + SUM(p.m6)) / COUNT(q.fkUsuario),2) AS media_geral,
+    COUNT(q.fkUsuario) qtd_tentativas
     FROM pontuacaoMateriasQuiz AS p
     JOIN quiz AS q ON p.fkQuizTentativa = q.idQuizTentativa
     WHERE q.fkUsuario = ${ids2};	
