@@ -96,9 +96,9 @@
     width: 85%;
     min-height: 100vh;
 
-    background-color: #011471;
-    /*linear-gradient(to right, #011471, #6b118f);*/
-
+    background: #0f2060;
+    /* #0f2060, #011471, #6b118f*/
+    
     margin-left: 15%;
     order: 2;
 }
@@ -135,9 +135,9 @@
     margin-top: 40px;
 
     color: white;
-
-    background: rgba(255, 255, 255, 0.07);
-    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 
 
@@ -156,10 +156,10 @@
     color: #f4a261;
 }
 
-.text-kpi{
+.text-kpi {
 
     font-size: 14px;
-    color: ;
+    color: rgb(212, 212, 212);
 }
 
 /* ========== Gráficos ========== */
@@ -200,8 +200,8 @@
     height: 300px;
     width: 500px;
 
-    background: rgba(255, 255, 255, 0.07);
-    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 
     padding: 14px 16px;
@@ -213,15 +213,17 @@
     margin-bottom: 20px;
 }
 
+
+
 .tabela-ranking {
 
 
-    height: 340px;
+    height: 300px;
     width: 280px;
 
 
-    background: rgba(255, 255, 255, 0.07);
-    border: 0.5px solid rgba(255, 255, 255, 0.12);
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 10px;
 
     color: white;
@@ -238,8 +240,7 @@
 
 .tabela-ranking div {
 
-    text-align: s;
-    font-size: 16px;
+    font-size: 18px;
 
-    padding: 0px 30px;
+    padding: 0px 20px;
 }

@@ -51,13 +51,16 @@
                     <p><span id="kpi2"></span> Questões Corretas</p>
 
                     <p class="text-kpi">Total tentativas: <span id="total-tentativas"></span></p>
+                    
                 </div>
 
                 <div class="kpi">
 
-                    <h3>Matéria Crítica: <br><span class="materia-critica" id="materia-critica"></span></h3>
+                    <h3>Matéria menor acerto: <br><span class="materia-critica" id="materia-critica"></span></h3>
 
                     <p>Total de acertos: <span id="kpi3"></span></p>
+
+                    <p class="text-kpi">Total tentativas: <span id="total-tentativas-kpi3"></span></p>
 
                 </div>
             </div>
@@ -407,11 +410,12 @@
 
         var listaPontuacaoSum = [];
         var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
+        var qtdTentativas_3 = 0;
 
-
-        for (let i = 0; i < 6; i++) {
+        for (let i = 0; i < kpi3.length; i++) {
 
             listaPontuacaoSum.push(Number(kpi3[0]["m" + (i + 1)]))
+            qtdTentativas_3 = kpi3[i].qtd_tentativas
         }
 
         var menorPontuacao = listaPontuacaoSum[0];
@@ -430,6 +434,7 @@
 
         document.getElementById("kpi3").innerHTML = menorPontuacao
         document.getElementById("materia-critica").innerHTML = indiceMateria
+        document.getElementById("total-tentativas-kpi3").innerHTML = qtdTentativas_3
 
     }
 
@@ -441,7 +446,7 @@
         for(let i = 0; i < kpi2.length; i++){
 
             mediaGeral = kpi2[i].media_geral
-            qtdTentativas = kpi2[0].qtd_tentativas
+            qtdTentativas = kpi2[i].qtd_tentativas
         }
 
         document.getElementById("kpi2").innerHTML = mediaGeral;

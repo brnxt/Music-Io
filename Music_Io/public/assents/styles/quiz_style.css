@@ -1,4 +1,3 @@
-
 .banner-quiz {
 
     display: flex;
@@ -93,13 +92,16 @@
     width: 40%;
     margin-top: 80px;
 
-    background-color: rgb(89, 15, 138);
+    background-color: rgba(19, 15, 138, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
     border-radius: 15px;
 
     color: white;
 }
 
-.pergunta{
+.pergunta {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,7 +110,7 @@
 
 }
 
-.pergunta a{
+.pergunta a {
 
     font-size: 20px;
 
@@ -118,21 +120,25 @@
 
     font-size: 22px;
     font-weight: bolder;
+    padding: 0 50px;
+    margin-top: 10px;
+
+    text-align: center;
 }
 
-.opcoes{
+.opcoes {
 
     display: flex;
     flex-direction: column;
-    
+
     height: 30%;
     font-size: 18px;
-    
+
     padding: 8px;
 
 }
 
-.botoes{
+.botoes {
 
     display: flex;
     flex-direction: column;
@@ -140,7 +146,7 @@
     padding: 8px;
     gap: 10px;
 
-    
+
 }
 
 /* ========== Resultado ========== */
@@ -153,17 +159,20 @@
     flex-direction: column;
 
 
-    height: 60%;
-    width: 40%;
+    height: 70%;
+    width: 50%;
     margin-top: 80px;
-    padding-top: 40px;
+    padding-top: 20px;
 
-    background-color: rgb(89, 15, 138);
+    background-color: rgba(19, 15, 138, 0.45);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
     color: white;
     border-radius: 15px;
 }
 
-.resultado-titulo  {
+.resultado-titulo {
 
     display: flex;
 
@@ -176,30 +185,147 @@
 }
 
 .resultado-titulo h1 {
-    
+
     font-size: 36px;
     margin: 0;
-    
+
 }
 
 .resultado-titulo p {
     font-size: 22px;
     margin-top: 10px;
-    padding-top: 20px;
 }
 
 .listas {
 
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 
     width: 100%;
     height: 60%;
 
     padding-bottom: 5px;
-    gap: 20px;
+    gap: 60px;
 
     font-size: 22px;
+}
+
+.botaoSubmeter,
+.verDashboard {
+
+    background-image: linear-gradient(to left, #6b118f, #011471);
+    border: none;
+    border-radius: 8px;
+
+    color: white;
+    padding: 10px 28px;
+
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+.botaoAvancar {
+
+
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+
+    color: white;
+    padding: 10px 28px;
+    cursor: default;
+
+}
+
+/* ========= Após a ação de submeter ou avançar ========= */
+
+.botaoSubmeter.respondido {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.4);
+    cursor: default;
+}
+
+.botaoAvancar.respondido {
+    background-image: linear-gradient(to left, #6b118f, #011471);
+    border: none;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+
+.materia-card {
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+    
+
+    width: 260px;
+    height: 90px;
+    padding: 10px 20px;
+
+    margin-bottom: 20px;
+
+    background-color: #232154;
+    border-radius: 15px;
+
+    position: relative;
+    box-sizing: border-box;
+
+    font-size: 14px;
+
+
+}
+
+.materia-card p {
+    display: block;
+    margin: 0; 
+
+    padding-bottom: 2px; 
+    color: white;
+}
+
+
+
+.materia-container-barra {
+    
+    width: 100%;
+    height: 6px;
+
+    background-color: #3b3975; 
+    border-radius: 100px;
+
+    margin-top: 8px;
+    margin-bottom: 4px;
+
+    margin-right: 20px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.materia-barra {
+    
+    height: 6px;
+    background: #4f46e5;
+
+    border-radius: 100px;
+    margin: 0;
+}
+
+.verDashboard {
+
+    margin-top: 10px;
+}
+
+.texto-acertos {
+    font-size: 11px; 
+    color: #b5b5b5; 
+    margin: 0;
 }

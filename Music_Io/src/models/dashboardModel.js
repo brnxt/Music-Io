@@ -57,7 +57,8 @@ function listarKpi3(ids3) {
     SUM(p.m3) AS m3,
     SUM(p.m4) AS m4,
     SUM(p.m5) AS m5,
-	SUM(p.m6) AS m6
+	SUM(p.m6) AS m6,
+    COUNT(q.fkUsuario) qtd_tentativas
     FROM pontuacaoMateriasQuiz AS p 
     JOIN quiz AS q ON p.fkQuizTentativa = q.idQuizTentativa
     JOIN usuario AS u ON q.fkUsuario = u.idUsuario
@@ -87,7 +88,8 @@ function listarTabela(tab) {
     FROM usuario AS u
     JOIN quiz AS q ON u.idUsuario = q.fkUsuario
     GROUP BY u.nome
-    ORDER BY pontuacao_total DESC;	
+    ORDER BY pontuacao_total DESC
+    LIMIT 5;	
     `
     return database.executar(instrucaoSql5)
 }
