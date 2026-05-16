@@ -51,12 +51,13 @@
                     <p><span id="kpi2"></span> Questões Corretas</p>
 
                     <p class="text-kpi">Total tentativas: <span id="total-tentativas"></span></p>
-                    
+
                 </div>
 
                 <div class="kpi">
 
-                    <h3>Matéria menor acerto: <br><span class="materia-critica" id="materia-critica"></span></h3>
+                    <h3>Matéria com <br> menor acerto: <br><span class="materia-critica" id="materia-critica"></span>
+                    </h3>
 
                     <p>Total de acertos: <span id="kpi3"></span></p>
 
@@ -78,9 +79,14 @@
                 </div>
 
                 <div class="grafico-container-2">
+
                     <div class="tabela-ranking">
                         <h3>Tabela Ranking</h3>
                         <div class="linha-ranking" id="div_exibir"></div>
+                    </div>
+
+                    <div class="grafico-donut">
+                        <canvas id="grafico-donut"></canvas>
                     </div>
 
                 </div>
@@ -103,6 +109,9 @@
     function obterDados() {
 
         var idUsuario = sessionStorage.ID_USUARIO;
+
+
+        /* ================ Grafico Barra ================ */
 
         fetch(`/dashboard/listar/${idUsuario}`, {
             method: "GET",
@@ -130,7 +139,7 @@
 
 
 
-        // fetch Gráfico linha
+        /* ================ Grafico Linha ================ */
 
 
         fetch(`/dashboard/listarUltimos5/${idUsuario}`, {
@@ -155,6 +164,32 @@
             .catch(function (erro) {
                 console.error(`Erro no fetch: ${erro.message}`);
             });
+
+
+        /* ================ Grafico Donut ================ */
+
+        fetch(`/dashboard/listarGraficoDonut/${idUsuario}`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+        })
+
+            .then(function (respostaGraficoDonut) {
+                if (respostaGraficoDonut.ok) {
+
+                    return respostaGraficoDonut.json()
+                }
+            })
+
+            .then(function (jsonDonut) {
+                console.log(`ABCDERF`, jsonDonut)
+                plotarGraficoDonut(jsonDonut)
+            })
+
+            .catch(function (erro) {
+                console.error(`Erro no fetch: ${erro.message}`);
+            })
 
 
         /* ================ Primeira KPI: Ranking ================ */
@@ -326,11 +361,11 @@
                 },
                 scales: {
                     x: {
-                        ticks: { color: '#7a9ad4' },
+                        ticks: { color: 'white' },
                         grid: { display: false },
                     },
                     y: {
-                        ticks: { color: '#7a9ad4' },
+                        ticks: { color: 'white' },
                         grid: { display: false },
                     },
                 }
@@ -381,11 +416,16 @@
                 },
                 scales: {
                     x: {
-                        ticks: { color: '#7a9ad4' },
+                        ticks: { color: 'white' },
                         grid: { display: false },
                     },
                     y: {
-                        ticks: { color: '#7a9ad4' },
+                        min: 0,
+                        max: 3,
+                        ticks: {
+                            color: 'white',
+
+                        },
                         grid: { display: false },
                     },
                 }
@@ -395,6 +435,53 @@
 
     }
 
+
+    /* ================ Função para plotar o gráfico de donut ================ */
+
+    function plotarGraficoDonut(jsonDonut) {
+
+        var listaPontuacao = []
+        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
+
+        for (let i = 0; i < 6; i++) {
+
+            listaPontuacao.push(Number(jsonDonut[0]["m" + (i + 1)]))
+
+        }
+
+        var ctx = document.getElementById('grafico-donut').getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: listaMaterias,
+                
+                datasets: [{
+                    data: listaPontuacao,      
+                    backgroundColor: ['#38b6ff', '#7b61ff', '#00c9a7', '#ff6b6b', '#ffd166', '#a29bfe']
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            color: 'white',
+                        }
+                        
+                    },
+                    title: {
+                        display: true,
+                        text: 'Quantitade de Acertos Total por Matéria',
+                        color: 'white'
+                    }
+                }
+            },
+        });
+
+    };
 
 
 
@@ -443,7 +530,7 @@
         let mediaGeral = 0;
         let qtdTentativas = 0;
 
-        for(let i = 0; i < kpi2.length; i++){
+        for (let i = 0; i < kpi2.length; i++) {
 
             mediaGeral = kpi2[i].media_geral
             qtdTentativas = kpi2[i].qtd_tentativas
@@ -472,5 +559,6 @@
             `
         }
     }
+
 
 </script>

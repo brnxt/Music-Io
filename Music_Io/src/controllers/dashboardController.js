@@ -109,6 +109,30 @@ function listarUltimos5(req, res) {
         })
 }
 
+function listarGraficoDonut(req, res) {
+
+    var ids4 = req.params.idUsuario;
+
+    dashboardModel.plotarGraficoDonut(ids4)
+
+        .then(function (resultadoDonut) {
+
+            if (resultadoDonut.length > 0) {
+
+                res.status(200).json(resultadoDonut)
+            }
+            else {
+
+                res.status(204).send("Nenhum resultado")
+            }
+        })
+
+        .catch(function (erro) {
+
+            res.status(500).json(erro.sqlMessage);
+        })
+}
+
 
 
 function listarKpi1(req, res) {
@@ -186,35 +210,36 @@ function listarKpi3(req, res) {
 
             res.status(500).json(erro.sqlMessage);
         })
-    }
+}
 
 
-    function listarTabela(req, res) {
+function listarTabela(req, res) {
 
-        var tab = req.params.idUsuario;
+    var tab = req.params.idUsuario;
 
-        dashboardModel.listarTabela(tab)
+    dashboardModel.listarTabela(tab)
 
-            .then(function (resultadoTabela) {
+        .then(function (resultadoTabela) {
 
 
-                if (resultadoTabela.length > 0) {
+            if (resultadoTabela.length > 0) {
 
-                    res.status(200).json(resultadoTabela)
-                }
-                else {
+                res.status(200).json(resultadoTabela)
+            }
+            else {
 
-                    res.status(204).send("Nenhum resultado")
-                }
-            })
+                res.status(204).send("Nenhum resultado")
+            }
+        })
 
-            .catch(function (erro) {
+        .catch(function (erro) {
 
-                res.status(500).json(erro.sqlMessage);
-            })
-    }
+            res.status(500).json(erro.sqlMessage);
+        })
+}
 
 module.exports = {
+    listarGraficoDonut,
     obterDados,
     listar,
     listarUltimos5,

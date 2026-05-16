@@ -33,6 +33,10 @@ router.get("/listarTabela/:idUsuario", function (req, res) {
     dashboardController.listarTabela(req, res)
 })
 
+router.get("/listarGraficoDonut/:idUsuario", function (req, res) {
+    dashboardController.listarGraficoDonut(req, res)
+})
+
 
 
 module.exports = router;
