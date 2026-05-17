@@ -14,10 +14,9 @@
 
 </head>
 
-<body onload="verificarLoginNome()">
+<body onload="verificarLoginNome();esconderModal()">
 
     <!-- ================== Header ================== -->
-
     <div class="header">
         <div class="titulo">Music Io</div>
         <ul class="navbar">
@@ -46,11 +45,10 @@
                 <a href="../assents/login.html">Login</a>
             </li>
             <li class="nomeUsuario">
-                <a><span id="usuario"></span></a>
+                <a onclick="mostrarModal()"><span id="usuario"></span></a>
             </li>
         </ul>
     </div>
-
 
     <div class="banner">
         <div class="fraseBanner">
@@ -239,30 +237,52 @@
 
     <div class="footer">Music Io © 2026</div>
 
+
+
+    <div id="modal" class="modal-logout">
+
+        <div class="modal-card">
+            <div class="modal-titulo">
+                <h3>Até logo!</h3>
+            </div>
+
+            <div class="modal-conteudo">
+                <p>Tem certeza que deseja encerrar sua sessão?</p>
+
+                <div class="modal-botoes">
+                    
+                    <button class="botaoCancelar" onclick="fecharModal()">Cancelar</button>
+                    <button class="botaoSair" onclick="confirmarLogout()">Sair</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
 <script>
 
-    function verificarLoginQuiz(){
-        if(sessionStorage.ID_USUARIO == null){
+    function verificarLoginQuiz() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar no quiz")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './game.html'
         }
     }
-    
-    function verificarLoginDashboard(){
-        if(sessionStorage.ID_USUARIO == null){
+
+    function verificarLoginDashboard() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar na dashboard")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './dashboard.html'
         }
@@ -275,14 +295,38 @@
             document.querySelector('.nomeUsuario').style.display = `none`
             document.querySelector('.botaoLogin').style.display = `flex`
 
-            
+
         }
         else {
-            
+
             document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO
             document.querySelector('.nomeUsuario').style.display = `flex`
             document.querySelector('.botaoLogin').style.display = `none`
         }
+    }
+
+
+    function esconderModal() {
+
+        document.getElementById("modal").style.display = `none`
+    }
+
+    function mostrarModal() {
+
+        document.getElementById("modal").style.display = `flex`
+    }
+
+    function fecharModal(){
+
+        document.getElementById("modal").style.display = `none`
+    }
+    function confirmarLogout(){
+
+        sessionStorage.removeItem('ID_USUARIO')
+        sessionStorage.removeItem('NOME_USUARIO')
+        sessionStorage.removeItem('EMAIL_USUARIO')
+
+        window.location.href = `./index.html`
     }
 
 </script>

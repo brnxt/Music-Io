@@ -15,7 +15,7 @@
         rel="stylesheet">
 </head>
 
-<body onload="verificarLogin()">
+<body onload="verificarLogin();esconderModal()">
     <!-- ================== Header ================== -->
 
     <div class="header">
@@ -23,17 +23,6 @@
         <ul class="navbar">
             <li>
                 <a href="../assents/index.html">Home</a>
-            </li>
-            <li>
-                <select name="" id="">
-                    <option value="">Conteúdos</option>
-                    <option value="">A</option>
-                    <option value="">B</option>
-                    <option value="">C</option>
-                    <option value="">D</option>
-                    <option value="">E</option>
-                    <option value="">F</option>
-                </select>
             </li>
             <li>
                 <button onclick="verificarLoginQuiz()"><a id="navbar-quiz">Quiz</a></button>
@@ -44,8 +33,19 @@
             <li class="botaoLogin">
                 <a href="../assents/login.html">Login</a>
             </li>
+            <li>
+                 <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
+                    <option value="">Conteúdos</option>
+                    <option value="som">Som e Música</option>
+                    <option value="pilares">Os Pilares</option>
+                    <option value="maquinas">Máquinas de Som</option>
+                    <option value="linha">Linha do Tempo</option>
+                    <option value="mente">Mente e Ritmo</option>
+                    <option value="orquestra">A Orquestra</option>
+                </select>
+            </li>
             <li class="nomeUsuario">
-                <a><span id="usuario"></span></a>
+                <a onclick="mostrarModal()"><span id="usuario"></span></a>
             </li>
         </ul>
     </div>
@@ -297,6 +297,24 @@
 
     <div class="footer">Music Io © 2026</div>
 
+    <div class="modal-card">
+        <div class="modal-titulo">
+            <h3>Até logo!</h3>
+        </div>
+
+        <div class="modal-conteudo">
+            <p>Tem certeza que deseja encerrar sua sessão?</p>
+
+            <div class="modal-botoes">
+
+                <button class="botaoCancelar" onclick="fecharModal()">Cancelar</button>
+                <button class="botaoSair" onclick="confirmarLogout()">Sair</button>
+
+            </div>
+        </div>
+    </div>
+
+
 </body>
 
 </html>
@@ -309,38 +327,90 @@
             document.querySelector('.nomeUsuario').style.display = `none`
             document.querySelector('.botaoLogin').style.display = `flex`
 
-            
+
         }
         else {
-            
+
             document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO
             document.querySelector('.nomeUsuario').style.display = `flex`
             document.querySelector('.botaoLogin').style.display = `none`
         }
     }
 
-    function verificarLoginQuiz(){
-        if(sessionStorage.ID_USUARIO == null){
+    function verificarLoginQuiz() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar no quiz")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './game.html'
         }
     }
-    
-    function verificarLoginDashboard(){
-        if(sessionStorage.ID_USUARIO == null){
+
+    function verificarLoginDashboard() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar na dashboard")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './dashboard.html'
         }
     }
 
+    function esconderModal() {
+
+        document.getElementById("modal").style.display = `none`
+    }
+
+    function mostrarModal() {
+
+        document.getElementById("modal").style.display = `flex`
+    }
+
+    function fecharModal() {
+
+        document.getElementById("modal").style.display = `none`
+    }
+    function confirmarLogout() {
+
+        sessionStorage.removeItem('ID_USUARIO')
+        sessionStorage.removeItem('NOME_USUARIO')
+        sessionStorage.removeItem('EMAIL_USUARIO')
+
+        window.location.href = `./index.html`
+    }
+
+    function irTelaInfo(valor) {
+
+
+        if(valor == 'som'){
+
+            return window.location.href = `./telaInfo1.html`
+        }
+        else if(valor == 'pilares'){
+
+            return window.location.href = `./telaInfo2.html`
+        }
+        else if(valor == 'maquinas'){
+
+            return window.location.href = `./telaInfo3.html`
+        }
+        else if(valor == 'linha'){
+
+            return window.location.href = `./telaInfo4.html`
+        }
+        else if(valor == 'mente'){
+
+            return window.location.href = `./telaInfo5.html`
+        }
+        else if(valor == 'orquestra'){
+
+            return window.location.href = `./telaInfo6tml`
+        }
+
+    }
 </script>

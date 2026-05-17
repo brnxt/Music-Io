@@ -236,7 +236,7 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 8px;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.4);
     padding: 10px 28px;
     cursor: default;
 
@@ -245,15 +245,20 @@
 /* ========= Após a ação de submeter ou avançar ========= */
 
 .botaoSubmeter.respondido {
+
     background: transparent;
     border: 1px solid rgba(255, 255, 255, 0.3);
     color: rgba(255, 255, 255, 0.4);
+    
     cursor: default;
 }
 
 .botaoAvancar.respondido {
+    
+    background: transparent;
     background-image: linear-gradient(to left, #6b118f, #011471);
     border: none;
+
     color: white;
     font-weight: 600;
     cursor: pointer;
