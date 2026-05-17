@@ -36,7 +36,7 @@
         <div class="dashboard-container">
 
             <div class="kpi-container">
-                <div class="kpi">
+                <div class="kpi kpi1">
 
                     <h3>Ranking Atual da Tabela:</h3>
 
@@ -56,7 +56,7 @@
 
                 <div class="kpi">
 
-                    <h3>Matéria com <br> menor acerto: <br><span class="materia-critica" id="materia-critica"></span>
+                    <h3>Matéria com menor acerto: <br><span class="materia-critica" id="materia-critica"></span>
                     </h3>
 
                     <p>Total de acertos: <span id="kpi3"></span></p>
@@ -343,7 +343,7 @@
             data: {
                 labels: dadosData,
                 datasets: [{
-                    label: 'Histórico 5 Últimas tentativas',
+                    label: 'Histórico das 5 Últimas tentativas',
                     data: dadosPontuacao,
                     borderWidth: 1,
                     tension: 0.3
@@ -398,7 +398,7 @@
             data: {
                 labels: listaMaterias,
                 datasets: [{
-                    label: 'Pontuação da Última tentativa por matéria',
+                    label: 'Pontuação da Última tentativa por Matéria',
                     data: listaDadosJson,
                     borderWidth: 1
 

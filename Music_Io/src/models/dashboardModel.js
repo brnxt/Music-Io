@@ -110,7 +110,7 @@ function listarTabela(tab) {
     JOIN quiz AS q ON u.idUsuario = q.fkUsuario
     GROUP BY u.nome
     ORDER BY pontuacao_total DESC
-    LIMIT 5;	
+    LIMIT 7;	
     `
     return database.executar(instrucaoSql5)
 }
