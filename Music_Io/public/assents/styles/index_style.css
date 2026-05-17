@@ -576,3 +576,12 @@
 
     box-shadow: 0 0 20px rgba(130, 29, 170, 0.6);
 }
+
+.fontes {
+
+    background-color: #f2f2f2;
+    padding-left: 10px;
+    padding-bottom: 10px;
+
+    font-size: 18px;
+}

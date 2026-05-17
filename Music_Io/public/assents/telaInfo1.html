@@ -35,7 +35,7 @@
                 <a href="../assents/login.html">Login</a>
             </li>
             <li>
-                 <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
+                <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
                     <option value="">Conteúdos</option>
                     <option value="som">Som e Música</option>
                     <option value="pilares">Os Pilares</option>
@@ -198,6 +198,14 @@
         </div>
     </div>
 
+    <p class="fontes">
+        Fontes:<br><br>
+        - Frahm: <a
+            href="https://frahm.com.br/ciencia-por-tras-do-som/">https://frahm.com.br/ciencia-por-tras-do-som/</a>
+        <br><br>
+        - Significados: <a href="https://www.significados.com.br/musica/"> https://www.significados.com.br/musica/</a>
+    </p>
+
     <div class="footer">Music Io © 2026</div>
 
     <div id="modal" class="modal-logout">
@@ -276,11 +284,11 @@
         document.getElementById("modal").style.display = `flex`
     }
 
-    function fecharModal(){
+    function fecharModal() {
 
         document.getElementById("modal").style.display = `none`
     }
-    function confirmarLogout(){
+    function confirmarLogout() {
 
         sessionStorage.removeItem('ID_USUARIO')
         sessionStorage.removeItem('NOME_USUARIO')
@@ -292,27 +300,27 @@
     function irTelaInfo(valor) {
 
 
-        if(valor == 'som'){
+        if (valor == 'som') {
 
             return window.location.href = `./telaInfo1.html`
         }
-        else if(valor == 'pilares'){
+        else if (valor == 'pilares') {
 
             return window.location.href = `./telaInfo2.html`
         }
-        else if(valor == 'maquinas'){
+        else if (valor == 'maquinas') {
 
             return window.location.href = `./telaInfo3.html`
         }
-        else if(valor == 'linha'){
+        else if (valor == 'linha') {
 
             return window.location.href = `./telaInfo4.html`
         }
-        else if(valor == 'mente'){
+        else if (valor == 'mente') {
 
             return window.location.href = `./telaInfo5.html`
         }
-        else if(valor == 'orquestra'){
+        else if (valor == 'orquestra') {
 
             return window.location.href = `./telaInfo6tml`
         }

@@ -34,7 +34,7 @@
                 <a href="../assents/login.html">Login</a>
             </li>
             <li>
-                 <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
+                <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
                     <option value="">Conteúdos</option>
                     <option value="som">Som e Música</option>
                     <option value="pilares">Os Pilares</option>
@@ -295,6 +295,11 @@
         </div>
     </div>
 
+    <p class="fontes">
+        Fontes:<br><br>
+        - Toda Matéria: <a href="https://www.todamateria.com.br/historia-da-musica/">https://www.todamateria.com.br/historia-da-musica/</a>
+    </p>
+
     <div class="footer">Music Io © 2026</div>
 
     <div class="modal-card">
@@ -387,27 +392,27 @@
     function irTelaInfo(valor) {
 
 
-        if(valor == 'som'){
+        if (valor == 'som') {
 
             return window.location.href = `./telaInfo1.html`
         }
-        else if(valor == 'pilares'){
+        else if (valor == 'pilares') {
 
             return window.location.href = `./telaInfo2.html`
         }
-        else if(valor == 'maquinas'){
+        else if (valor == 'maquinas') {
 
             return window.location.href = `./telaInfo3.html`
         }
-        else if(valor == 'linha'){
+        else if (valor == 'linha') {
 
             return window.location.href = `./telaInfo4.html`
         }
-        else if(valor == 'mente'){
+        else if (valor == 'mente') {
 
             return window.location.href = `./telaInfo5.html`
         }
-        else if(valor == 'orquestra'){
+        else if (valor == 'orquestra') {
 
             return window.location.href = `./telaInfo6tml`
         }

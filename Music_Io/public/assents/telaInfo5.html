@@ -34,7 +34,7 @@
                 <a href="../assents/login.html">Login</a>
             </li>
             <li>
-                 <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
+                <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
                     <option value="">Conteúdos</option>
                     <option value="som">Som e Música</option>
                     <option value="pilares">Os Pilares</option>
@@ -248,7 +248,13 @@
         </div>
     </div>
 
-
+    <p class="fontes">
+        Fontes:<br><br>
+        - Frahm: <a
+            href="https://frahm.com.br/a-influencia-da-musica-no-comportamento-humano/">https://frahm.com.br/a-influencia-da-musica-no-comportamento-humano/</a>
+        <br><br>
+        - Jornal da USP: <a href="https://jornal.usp.br/radio-usp/os-diferentes-efeitos-da-musica-no-desenvolvimento-humano/"> https://jornal.usp.br/radio-usp/os-diferentes-efeitos-da-musica-no-desenvolvimento-humano/</a>
+    </p>
 
     <div class="footer">Music Io © 2026</div>
 
@@ -281,35 +287,35 @@
             document.querySelector('.nomeUsuario').style.display = `none`
             document.querySelector('.botaoLogin').style.display = `flex`
 
-            
+
         }
         else {
-            
+
             document.getElementById('usuario').innerHTML = sessionStorage.NOME_USUARIO
             document.querySelector('.nomeUsuario').style.display = `flex`
             document.querySelector('.botaoLogin').style.display = `none`
         }
     }
 
-    function verificarLoginQuiz(){
-        if(sessionStorage.ID_USUARIO == null){
+    function verificarLoginQuiz() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar no quiz")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './game.html'
         }
     }
-    
-    function verificarLoginDashboard(){
-        if(sessionStorage.ID_USUARIO == null){
+
+    function verificarLoginDashboard() {
+        if (sessionStorage.ID_USUARIO == null) {
 
             alert("Faça login para entrar na dashboard")
             window.location.href = './login.html'
         }
-        else{
+        else {
 
             window.location.href = './dashboard.html'
         }
@@ -341,27 +347,27 @@
     function irTelaInfo(valor) {
 
 
-        if(valor == 'som'){
+        if (valor == 'som') {
 
             return window.location.href = `./telaInfo1.html`
         }
-        else if(valor == 'pilares'){
+        else if (valor == 'pilares') {
 
             return window.location.href = `./telaInfo2.html`
         }
-        else if(valor == 'maquinas'){
+        else if (valor == 'maquinas') {
 
             return window.location.href = `./telaInfo3.html`
         }
-        else if(valor == 'linha'){
+        else if (valor == 'linha') {
 
             return window.location.href = `./telaInfo4.html`
         }
-        else if(valor == 'mente'){
+        else if (valor == 'mente') {
 
             return window.location.href = `./telaInfo5.html`
         }
-        else if(valor == 'orquestra'){
+        else if (valor == 'orquestra') {
 
             return window.location.href = `./telaInfo6tml`
         }
