@@ -29,10 +29,6 @@
             <li>
                 <a onclick="verificarLoginDashboard()" id="navbar-dashboard">Dashboard</a>
             </li>
-            </li>
-            <li class="botaoLogin">
-                <a href="../assents/login.html">Login</a>
-            </li>
             <li>
                 <select id="listaMateria" onchange="irTelaInfo(`${listaMateria.value}`)">
                     <option value="">Conteúdos</option>
@@ -43,6 +39,9 @@
                     <option value="mente">Mente e Ritmo</option>
                     <option value="orquestra">A Orquestra</option>
                 </select>
+            </li>
+            <li class="botaoLogin">
+                <a href="../assents/login.html">Login</a>
             </li>
             <li class="nomeUsuario">
                 <a onclick="mostrarModal()"><span id="usuario"></span></a>
