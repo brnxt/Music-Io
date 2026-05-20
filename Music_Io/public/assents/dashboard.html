@@ -183,7 +183,7 @@
             })
 
             .then(function (jsonDonut) {
-                console.log(`ABCDERF`, jsonDonut)
+
                 plotarGraficoDonut(jsonDonut)
             })
 
@@ -304,7 +304,7 @@
 
             .then(function (tabela) {
 
-                console.log("Dados Tabela : ", JSON.stringify(tabela))
+                
 
                 listarTabela(tabela)
             })
@@ -499,10 +499,10 @@
         var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
         var qtdTentativas_3 = 0;
 
-        for (let i = 0; i < kpi3.length; i++) {
+        for (let i = 0; i < 6; i++) {
 
             listaPontuacaoSum.push(Number(kpi3[0]["m" + (i + 1)]))
-            qtdTentativas_3 = kpi3[i].qtd_tentativas
+            qtdTentativas_3 = kpi3[0].qtd_tentativas
         }
 
         var menorPontuacao = listaPontuacaoSum[0];

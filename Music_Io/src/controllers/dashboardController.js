@@ -44,11 +44,12 @@ function obterDados(req, res) {
 
 
             // status 200 = Operação realizada com sucesso
-            res.status(200).send("Resultado salvos");
+            res.status(200).json(respostaDoBanco);
         })
         .catch(function (erro) {
 
             // status 500 = Error
+            console.log("Erro na obterDados:", erro);
             res.status(500).json(erro.sqlMessage);
         });
 
