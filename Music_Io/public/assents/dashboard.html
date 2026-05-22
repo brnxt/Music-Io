@@ -56,12 +56,10 @@
 
                 <div class="kpi">
 
-                    <h3>Matéria com menor acerto: <br><span class="materia-critica" id="materia-critica"></span>
-                    </h3>
+                    <h3>Pontuação da Última tentativa: </h3>
 
-                    <p>Total de acertos: <span id="kpi3"></span></p>
-
-                    <p class="text-kpi">Total tentativas: <span id="total-tentativas-kpi3"></span></p>
+                    <p>Total de acertos: <span id="kpi3"></span> / 18</p>
+                    <p class="text-kpi">Data: <span id="total-tentativas-kpi3"></span></p>
 
                 </div>
             </div>
@@ -304,7 +302,7 @@
 
             .then(function (tabela) {
 
-                
+
 
                 listarTabela(tabela)
             })
@@ -377,6 +375,7 @@
 
 
     /* ================ Função para plotar o gráfico de barra ================ */
+
     function plotarGraficoBarra(json) {
 
 
@@ -455,9 +454,9 @@
             type: 'doughnut',
             data: {
                 labels: listaMaterias,
-                
+
                 datasets: [{
-                    data: listaPontuacao,      
+                    data: listaPontuacao,
                     backgroundColor: ['#38b6ff', '#7b61ff', '#00c9a7', '#ff6b6b', '#ffd166', '#a29bfe']
                 }]
             },
@@ -470,7 +469,7 @@
                         labels: {
                             color: 'white',
                         }
-                        
+
                     },
                     title: {
                         display: true,
@@ -495,33 +494,20 @@
 
     function listarKpi3(kpi3) {
 
-        var listaPontuacaoSum = [];
-        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
-        var qtdTentativas_3 = 0;
+        let dadosPontuacao = []
+        let dadosData = []
 
-        for (let i = 0; i < 6; i++) {
 
-            listaPontuacaoSum.push(Number(kpi3[0]["m" + (i + 1)]))
-            qtdTentativas_3 = kpi3[0].qtd_tentativas
+        for (let i = 0; i < 1; i++) {
+
+            dadosPontuacao[i] = Number(kpi3[i].pontuacao_total)
+            dadosData[i] = Number(kpi3[i].pontuacao_total)
         }
 
-        var menorPontuacao = listaPontuacaoSum[0];
-        var indiceMateria = listaMaterias[0];
+        console.log(dadosPontuacao)
 
-        for (let i = 0; i < listaPontuacaoSum.length; i++) {
-
-            if (menorPontuacao > listaPontuacaoSum[i]) {
-
-                menorPontuacao = listaPontuacaoSum[i]
-
-                indiceMateria = listaMaterias[i]
-            }
-
-        }
-
-        document.getElementById("kpi3").innerHTML = menorPontuacao
-        document.getElementById("materia-critica").innerHTML = indiceMateria
-        document.getElementById("total-tentativas-kpi3").innerHTML = qtdTentativas_3
+        document.getElementById("kpi3").innerHTML = kpi3[0].pontuacao_total
+        document.getElementById("total-tentativas-kpi3").innerHTML = kpi3[0].dtHora
 
     }
 
@@ -536,7 +522,7 @@
             qtdTentativas = kpi2[i].qtd_tentativas
         }
 
-        document.getElementById("kpi2").innerHTML = mediaGeral;
+        document.getElementById("kpi2").innerHTML = Math.trunc(mediaGeral);
         document.getElementById("total-tentativas").innerHTML = qtdTentativas;
     }
 

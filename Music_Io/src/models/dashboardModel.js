@@ -72,19 +72,10 @@ function listarKpi1(ids) {
 function listarKpi3(ids3) {
 
     var instrucaoSql3 = `
-    SELECT
-    SUM(p.m1) AS m1,
-    SUM(p.m2) AS m2,
-    SUM(p.m3) AS m3,
-    SUM(p.m4) AS m4,
-    SUM(p.m5) AS m5,
-	SUM(p.m6) AS m6,
-    COUNT(q.fkUsuario) qtd_tentativas
-    FROM pontuacaoMateriasQuiz AS p 
-    JOIN quiz AS q ON p.fkQuizTentativa = q.idQuizTentativa
-    JOIN usuario AS u ON q.fkUsuario = u.idUsuario
-    WHERE q.fkUsuario = ${ids3}
-    GROUP BY q.fkUsuario;
+    SELECT 
+        DATE_FORMAT(dtHora, '%d/%m %H:%i') AS dtHora,
+        pontuacao_total 
+        FROM quiz WHERE fkUsuario = ${ids3} ORDER BY dtHora DESC LIMIT 1;
     `
     return database.executar(instrucaoSql3)
 }
