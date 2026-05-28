@@ -228,11 +228,9 @@
             }
 
         })
-
             .then(function (respostaKpi2) {
 
                 if (respostaKpi2.ok) {
-
                     return respostaKpi2.json();
                 }
             })
@@ -243,6 +241,7 @@
             })
 
             .catch(function (erro) {
+
                 console.error(`Erro no fetch: ${erro.message}`);
             })
 
@@ -289,7 +288,6 @@
             headers: {
                 "Content-Type": "application/json"
             }
-
         })
 
             .then(function (respostaTabela) {
@@ -302,15 +300,12 @@
 
             .then(function (tabela) {
 
-
-
                 listarTabela(tabela)
             })
 
             .catch(function (erro) {
                 console.error(`Erro no fetch: ${erro.message}`);
             })
-
 
     }
 
