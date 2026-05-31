@@ -365,7 +365,6 @@
         } else {
             finalizarJogo()
         }
-        limparCoresBackgroundOpcoes()
     }
 
 
@@ -394,26 +393,22 @@
         options.forEach((option) => {
             if (option.checked === true && option.value === respostaQuestaoAtual) {
 
+                /*  Para saber qual matéria a questão atual pertence, foi utilizado a equação " Math.floor(numeroDaQuestaoAtual / 3) + 1 " 
+                   que pega a o número da questão, divide por 3 e arredonda sempre para baixo usando o Math.floor.
+                */
 
                 let materiaId = Math.floor(numeroDaQuestaoAtual / 3) + 1;
                 listaAcertosMateria.push(materiaId);
 
                 pontuacaoTotal++
                 numeroDaQuestaoAtual++
+                
             } else if (option.checked && option.value !== respostaQuestaoAtual) {
 
 
                 erradas++
                 numeroDaQuestaoAtual++
             }
-        })
-    }
-
-    function limparCoresBackgroundOpcoes() {
-        const options = document.getElementsByName("option");
-        options.forEach((option) => {
-            document.getElementById(option.labels[0].id).classList.remove("text-danger-with-bg")
-            document.getElementById(option.labels[0].id).classList.remove("text-success-with-bg")
         })
     }
 
@@ -548,10 +543,10 @@
         })
 
             .then(function (resposta) {
-                console.log("Deu certo!")
+
             })
 
-            .catch(function (resposta) {
+            .catch(function (erro) {
 
                 console.log(erro);
             })

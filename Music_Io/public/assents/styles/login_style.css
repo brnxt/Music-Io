@@ -218,6 +218,8 @@ body {
     gap: 10px;
 }
 
+
+/* Cria a linha direita e esquerda do " ou " entre o login e cadastre-se*/
 .ou::before,
 .ou::after {
     content: "";

@@ -60,10 +60,8 @@ function obterDados(req, res) {
 // Função pra listar o id 
 function listar(req, res) {
 
-    // Pegando o Id da URL
+    // Pegando o id da URL
     var idUsuario = req.params.idUsuario
-
-    console.log(`Teste ${idUsuario}`)
 
     dashboardModel.plotarGraficoBarra(idUsuario)
 

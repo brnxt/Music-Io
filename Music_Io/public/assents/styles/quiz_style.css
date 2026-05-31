@@ -314,6 +314,11 @@
     margin-right: 20px;
 
     position: relative;
+
+    /* 
+        Nesse sentido, " overflow: hidden" faz com que a div filho (a barra azul claro)
+        não vaze na div pai (barra mais escura)
+    */
     overflow: hidden;
 }
 

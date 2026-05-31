@@ -547,6 +547,12 @@
     padding: 10px 26px;
 
     cursor: pointer;
+    
+    /* 
+        Nesse caso, o " flex: 1" ele ocupa todo o espaço disponível, caso tenha dois elementos o flex: 1,
+        eles dividem o espaço igualmente
+    */
+    
     flex: 1;
     transition: 0.2s;
 }
