@@ -22,7 +22,6 @@ function receberDados(req,res){
 
         .then(function (resposta) {
             
-            
             // status 200 = Operação realizada com sucesso
             res.status(200).send("Resultado salvos");
         })

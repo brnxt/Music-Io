@@ -245,12 +245,6 @@
                 console.error(`Erro no fetch: ${erro.message}`);
             })
 
-
-
-
-
-
-
         /* ================ Terceira KPI: Matéria Crítica ================ */
 
         fetch(`/dashboard/listarKpi3/${idUsuario}`, {
@@ -270,8 +264,6 @@
             })
 
             .then(function (kpi3) {
-
-
 
                 listarKpi3(kpi3)
             })
@@ -375,7 +367,7 @@
 
 
         var listaDadosJson = [];
-        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e ritmo', 'A Orquestra']
+        var listaMaterias = ['Som e Música', 'Pilares da Música', 'Máquinas de Som', 'Linha do Tempo', 'Mente e Ritmo', 'A Orquestra']
 
         for (let i = 1; i <= 6; i++) {
 
@@ -468,7 +460,7 @@
                     },
                     title: {
                         display: true,
-                        text: 'Quantitade de Acertos Total por Matéria',
+                        text: 'Quantidade de Acertos Total por Matéria',
                         color: 'white'
                     }
                 }
