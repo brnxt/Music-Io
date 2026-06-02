@@ -6,7 +6,7 @@ function plotarGraficoLinha(id) {
         SELECT 
         DATE_FORMAT(dtHora, '%d/%m %H:%i') AS dtHora,
         pontuacao_total 
-        FROM quiz WHERE fkUsuario = ${id} ORDER BY dtHora DESC LIMIT 5;
+        FROM quiz WHERE fkUsuario = ${id} ORDER BY quiz.dtHora DESC LIMIT 5;
     `
 
     return database.executar(instrucaoSql1)
@@ -75,7 +75,7 @@ function listarKpi3(ids3) {
     SELECT 
         DATE_FORMAT(dtHora, '%d/%m %H:%i') AS dtHora,
         pontuacao_total 
-        FROM quiz WHERE fkUsuario = ${ids3} ORDER BY dtHora DESC LIMIT 1;
+        FROM quiz WHERE fkUsuario = ${ids3} ORDER BY quiz.dtHora DESC LIMIT 1;
     `
     return database.executar(instrucaoSql3)
 }
