@@ -1,9 +1,23 @@
-# Music-Io
+## 𝄞 Music Io
 
-Music Io 
+Projeto acadêmico desenvolvido com o objetivo de incentivar mais pessoas a conhecerem o universo da música
 
-    O projeto Music Io tem como objetivo levar as pessoas a conhecerem esse "universo" da música, 
-a partir do surgimento dela e até mesmo uma parte da teoria musical junto com os instrumentos.
-    Eu conheci há pouco tempo e mudou o meu modo de pensar,agir e ver a vida como ela é e espero
-conseguir compartilhar esse conhecimento para que mais pessoas possam aproveitar esse "mundo".
+## Sobre
 
+O **Music Io** é um website no estilo plataforma educacional, com o foco de trazer o conhecimento musical de forma mais prática e acessível para todos.
+
+A ideia surgiu de uma experiência pessoal com a música — onde conheci pessoas importantes, aprendi novas habilidades e um novo hobby. Acredito que mais pessoas merecem ter essa experiência.
+
+## Tecnologias Utilizadas
+
+- HTML
+- CSS
+- JavaScript
+- Node.js
+- Express
+- MySQL
+- Chart.js
+
+## Status Atual 
+
+Concluído
